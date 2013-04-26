@@ -184,4 +184,39 @@ var Values = function ( options ) {
             hsl: { h: hsl.h * 360, s: hsl.s * 100, l: hsl.l * 100 }
         };
     };
+
+    Values.prototype.lightness = function( value ) {
+        if ( typeof value === 'number') {
+            var h = this.settings.color.hsl.h,
+                s = this.settings.color.hsl.s,
+                l = this.settings.color.hsl.l,
+                lightness = (l + value);
+
+            if (lightness < 0)   lightness = 0;
+            if (lightness > 100) lightness = 100;
+
+            var rgb = HSLtoRGB( h / 360, s / 100, lightness / 100),
+                r = Math.round(rgb.r),
+                g = Math.round(rgb.g),
+                b = Math.round(rgb.b),
+                obj = {};
+
+            obj.rgb = {
+                r: r,
+                g: g,
+                b: b
+            };
+
+            obj.hsl = {
+                h: h,
+                s: s,
+                l: lightness
+            };
+
+            obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
+
+            return obj;
+        }
+        console.error('lightness expects a number');
+    };
 }
