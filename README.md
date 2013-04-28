@@ -64,7 +64,7 @@ var current = myColor.getColor();
 var distance = myColor.getDistance();
 ```
 
-### Change Base Color
+#### Change Base Color
 ```js
 myColor.setColor('#ff0000');
 ```
@@ -74,7 +74,7 @@ myColor.setColor('#ff0000');
 myColor.changeDistance( 10 );
 ```
 
-### Defaults Options
+## Defaults Options
 ```js
 color: {
     hex: "#37D7C2",
