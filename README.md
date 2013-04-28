@@ -17,8 +17,8 @@ None
 var myColor = new Values();
 myColor.setColor('#0099ff');
 var values = myColor.getTintsAndShades();
-for (var i = 0; i < colors.length; i += 1) {
-    console.log( colors[i] );
+for (var i = 0; i < values.length; i += 1) {
+    console.log( values[i] );
 }
 ```
 
