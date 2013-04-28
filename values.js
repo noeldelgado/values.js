@@ -110,7 +110,7 @@ var Values = function ( options ) {
         while ( i > parseInt(l, 10) ) {
             var rgb = HSLtoRGB( h / 360, s / 100, i / 100),
                 obj = {};
-            obj.rgb = {r: Math.floor(rgb.r), g: Math.floor(rgb.g), b: Math.floor(rgb.b) };
+            obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
             tints.push( obj );
@@ -130,7 +130,7 @@ var Values = function ( options ) {
         while ( i < parseInt(l, 10) ) {
             var rgb = HSLtoRGB( h / 360, s / 100, i / 100),
                 obj = {};
-            obj.rgb = {r: Math.floor(rgb.r), g: Math.floor(rgb.g), b: Math.floor(rgb.b) };
+            obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
             shades.push( obj );
