@@ -167,11 +167,11 @@ var Values = function ( options ) {
         return this.settings.color;
     };
 
-    Values.prototype.getGap = function() {
+    Values.prototype.getDistance = function() {
         return this.settings.distance;
     };
 
-    Values.prototype.setGap = function( value ) {
+    Values.prototype.setDistance = function( value ) {
         this.settings.distance = value;
     };
 

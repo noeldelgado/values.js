@@ -71,7 +71,7 @@ myColor.setColor('#ff0000');
 
 #### Change distance
 ```js
-myColor.changeDistance( 10 );
+myColor.setDistance( 10 );
 ```
 
 ## Defaults Options
