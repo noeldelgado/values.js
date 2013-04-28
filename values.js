@@ -8,7 +8,7 @@ var Values = function ( options ) {
             rgb: {r: 55,  g: 215, b: 194},
             hsl: {h: 172, s: 67,  l: 53}
         },
-        gap: 1.1
+        distance: 1.1
     };
 
     for ( var i in options ) {
@@ -114,7 +114,7 @@ var Values = function ( options ) {
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
             tints.push( obj );
-            i -= this.settings.gap;
+            i -= this.settings.distance;
         };
 
         return tints;
@@ -134,7 +134,7 @@ var Values = function ( options ) {
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
             shades.push( obj );
-            i += this.settings.gap;
+            i += this.settings.distance;
         };
 
         return shades.reverse();
@@ -168,11 +168,11 @@ var Values = function ( options ) {
     };
 
     Values.prototype.getGap = function() {
-        return this.settings.gap;
+        return this.settings.distance;
     };
 
     Values.prototype.setGap = function( value ) {
-        this.settings.gap = value;
+        this.settings.distance = value;
     };
 
     Values.prototype.setColor = function( value ) {

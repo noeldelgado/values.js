@@ -1,29 +1,42 @@
-Values.js
-=========
+# Values.js
 
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
 Shades are dark values that are made by mixing a color with black, which reduces lightness.
 
-### Usage
+## Dependencies
+None
+
+## Usage Example
+```js
+// include values.js to your project
+<script src="values.js"></script>
+```
+
 ```js
 var myColor = new Values();
 myColor.setColor('#0099ff');
+var values = myColor.getTintsAndShades();
+for (var i = 0; i < colors.length; i += 1) {
+    console.log( colors[i] );
+}
 ```
 
-#### Tints
+## Methods
+
+#### Get Tints
 ```js
 var tints = myColor.getTints();
 // returns an array of objects width the tints
 ```
 
-#### Shades
+#### Get Shades
 ```js
 var shades = myColor.getShades();
 // returns an array of objects with the shades
 ```
 
-#### Both tints and shades
+#### Get Both tints and shades
 ```js
 var allValues = myColor.getTintsAndShades();
 // returns an array of objects with both the tints and shades
@@ -41,12 +54,32 @@ var darken = myColor.lightness( -20 );
 // => { hex: "#004d66", hsl: { h: 195, s: 100, l: 20 }, rgb: { r: 0, b: 102, g: 77 }
 ```
 
-### Defaults
+#### Get Color
+```js
+var current = myColor.getColor();
+```
+
+#### Get distance
+```js
+var distance = myColor.getDistance();
+```
+
+### Change Base Color
+```js
+myColor.setColor('#ff0000');
+```
+
+#### Change distance
+```js
+myColor.changeDistance( 10 );
+```
+
+### Defaults Options
 ```js
 color: {
     hex: "#37D7C2",
     rgb: {r: 55,  g: 215, b: 194},
     hsl: {h: 172, s: 67,  l: 53}
 },
-gap: 1.1
+distance: 1.1
 ```
