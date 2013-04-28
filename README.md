@@ -81,5 +81,5 @@ color: {
     rgb: {r: 55,  g: 215, b: 194},
     hsl: {h: 172, s: 67,  l: 53}
 },
-distance: 1.1
+distance: 1
 ```
