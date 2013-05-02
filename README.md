@@ -59,9 +59,9 @@ var darken = myColor.lightness( -20 );
 var current = myColor.getColor();
 ```
 
-#### Get distance
+#### Get range (percentage)
 ```js
-var distance = myColor.getDistance();
+var range = myColor.getRage();
 ```
 
 #### Change Base Color
@@ -69,9 +69,9 @@ var distance = myColor.getDistance();
 myColor.setColor('#ff0000');
 ```
 
-#### Change distance
+#### Change range (percentage)
 ```js
-myColor.setDistance( 10 );
+myColor.setRange( 10 );
 ```
 
 ## Defaults Options
