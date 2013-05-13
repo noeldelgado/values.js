@@ -110,7 +110,7 @@
         };
     };
 
-    Values.prototype.getTints = function() {
+    Values.prototype.getTints = function( include_base_color ) {
         var h = this.settings.color.hsl.h,
             s = this.settings.color.hsl.s,
             l = this.settings.color.hsl.l,
@@ -127,10 +127,14 @@
             i -= this.settings.range;
         };
 
+        if ( include_base_color ) {
+            tints.push( this.getColor() );
+        }
+
         return tints;
     };
 
-    Values.prototype.getShades = function() {
+    Values.prototype.getShades = function( include_base_color ) {
         var h = this.settings.color.hsl.h,
             s = this.settings.color.hsl.s,
             l = this.settings.color.hsl.l,
@@ -146,6 +150,10 @@
             shades.push( obj );
             i += this.settings.range;
         };
+
+        if ( include_base_color ) {
+            shades.push( this.getColor() );
+        }
 
         return shades.reverse();
     };
@@ -197,7 +205,7 @@
         return this;
     };
 
-    Values.prototype.lightness = function( value ) {
+    Values.prototype.lightness = function( value, include_base_color ) {
         if ( typeof value === 'number') {
             var h = this.settings.color.hsl.h,
                 s = this.settings.color.hsl.s,
@@ -227,7 +235,7 @@
 
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
 
-            return obj;
+            return include_base_color ? [this.getColor(), obj] : [obj];
         }
         console.error('lightness expects a number');
     };

@@ -14,8 +14,8 @@ None
 ```
 
 ```js
-var myColor = new Values('#0099ff');
-var values = myColor.getTintsAndShades();
+var color = new Values('#0099ff');
+var values = color.getTintsAndShades();
 for (var i = 0; i < values.length; i += 1) {
     console.log( values[i] );
 }
@@ -23,54 +23,68 @@ for (var i = 0; i < values.length; i += 1) {
 
 ## Methods
 
-#### Get Tints
+#### Get Tints ( include_base_color = false : boolean )
 ```js
-var tints = myColor.getTints();
-// returns an array of objects width the tints (Base color is excluded)
+var tints = color.getTints();
+// returns an array of objects width the tints
+/*
+ * The base color excluded by default.
+ * You can include the base color to the results passing true as an argument. ex: color.getTints( true )
+*/
 ```
 
-#### Get Shades
+#### Get Shades ( include_base_color = false : boolean )
 ```js
-var shades = myColor.getShades();
+var shades = color.getShades();
 // returns an array of objects with the shades (Base color is excluded)
+/*
+ * The base color excluded by default.
+ * You can include the base color to the results passing true as an argument. ex: color.getShades( true )
+*/
 ```
 
 #### Get Both tints and shades
 ```js
-var allValues = myColor.getTintsAndShades();
-// returns an array of objects with both the tints and shades (Base color included)
+var allValues = color.getTintsAndShades();
+// returns an array of objects with both the tints and shades (Base color always included)
 ```
 
-#### Lightness
+#### Lightness ( value : number, include_base_color = false : bolean )
 Accepts a positive or negative number
 ```js
-var lighten = myColor.lightness( 20 );
-// returns a single object with lightness increased
-// => { hex: "#33ccff", hsl: { h: 195, s: 100, l: 60 }, rgb: { r: 51, b: 255, g: 204 }
+var lighten = color.lightness( 20 );
+// returns an array with a single object ith lightnedd increased
+// => [{ hex: "#33ccff", hsl: { h: 195, s: 100, l: 60 }, rgb: { r: 51, b: 255, g: 204 }]
 
-var darken = myColor.lightness( -20 );
-// returns a single object with lightness decreased
-// => { hex: "#004d66", hsl: { h: 195, s: 100, l: 20 }, rgb: { r: 0, b: 102, g: 77 }
+var darken = color.lightness( -20 );
+// returns an array with a single object with lightness decreased
+// => [{ hex: "#004d66", hsl: { h: 195, s: 100, l: 20 }, rgb: { r: 0, b: 102, g: 77 }]
+
+/*
+ * The base color excluded by default.
+ * You can include the base color passing true as an argument.
+ * ex: color.lightness( 20, true ) // will return an array with two objects, the original and the modified.
+*/
 ```
 
 #### Get Color
 ```js
-var current = myColor.getColor();
+var current = color.getColor();
 ```
 
 #### Get range (percentage)
 ```js
-var range = myColor.getRage();
+var range = color.getRage();
 ```
 
 #### Change Base Color
 ```js
-myColor.setColor('#ff0000');
+color.setColor('#ff0000');
 ```
 
 #### Change range (percentage)
 ```js
-myColor.setRange( 10 );
+color.setRange( 10 );
 ```
 
 ## Defaults Options
