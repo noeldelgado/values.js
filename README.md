@@ -26,19 +26,19 @@ for (var i = 0; i < values.length; i += 1) {
 #### Get Tints
 ```js
 var tints = myColor.getTints();
-// returns an array of objects width the tints
+// returns an array of objects width the tints (Base color is excluded)
 ```
 
 #### Get Shades
 ```js
 var shades = myColor.getShades();
-// returns an array of objects with the shades
+// returns an array of objects with the shades (Base color is excluded)
 ```
 
 #### Get Both tints and shades
 ```js
 var allValues = myColor.getTintsAndShades();
-// returns an array of objects with both the tints and shades
+// returns an array of objects with both the tints and shades (Base color included)
 ```
 
 #### Lightness
