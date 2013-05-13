@@ -28,8 +28,9 @@ for (var i = 0; i < values.length; i += 1) {
 var tints = color.getTints();
 // returns an array of objects width the tints
 /*
- * The base color excluded by default.
- * You can include the base color to the results passing true as an argument. ex: color.getTints( true )
+ * The base color is excluded by default.
+ * You can include the base color to the results passing true as an argument.
+ * ex: color.getTints( true )
 */
 ```
 
@@ -38,8 +39,9 @@ var tints = color.getTints();
 var shades = color.getShades();
 // returns an array of objects with the shades (Base color is excluded)
 /*
- * The base color excluded by default.
- * You can include the base color to the results passing true as an argument. ex: color.getShades( true )
+ * The base color is excluded by default.
+ * You can include the base color to the results passing true as an argument.
+ * ex: color.getShades( true )
 */
 ```
 
@@ -61,9 +63,10 @@ var darken = color.lightness( -20 );
 // => [{ hex: "#004d66", hsl: { h: 195, s: 100, l: 20 }, rgb: { r: 0, b: 102, g: 77 }]
 
 /*
- * The base color excluded by default.
+ * The base color is excluded by default.
  * You can include the base color passing true as an argument.
- * ex: color.lightness( 20, true ) // will return an array with two objects, the original and the modified.
+ * ex: color.lightness( 20, true )
+ * will return an array with two objects, the original and the modified.
 */
 ```
 
