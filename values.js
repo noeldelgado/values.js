@@ -173,6 +173,7 @@ var Values = function ( options ) {
 
     Values.prototype.setRange = function( value ) {
         this.settings.range = value;
+        return this;
     };
 
     Values.prototype.setColor = function( value ) {
@@ -183,6 +184,7 @@ var Values = function ( options ) {
             rgb: rgb,
             hsl: { h: hsl.h * 360, s: hsl.s * 100, l: hsl.l * 100 }
         };
+        return this;
     };
 
     Values.prototype.lightness = function( value ) {
