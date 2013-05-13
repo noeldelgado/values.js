@@ -1,19 +1,29 @@
-var Values = function ( options ) {
+(function () {
 
     "use strict";
 
-    this.settings = {
-        color: {
-            hex: "#37D7C2",
-            rgb: {r: 55,  g: 215, b: 194},
-            hsl: {h: 172, s: 67,  l: 53}
-        },
-        range: 1
-    };
+    window.Values = Values;
 
-    for ( var i in options ) {
-        if ( options.hasOwnProperty(i) ) {
-            this.settings[i] = options[i];
+    function Values( options ) {
+        this.settings = {
+            color: {
+                hex: "#37D7C2",
+                rgb: {r: 55,  g: 215, b: 194},
+                hsl: {h: 172, s: 67,  l: 53}
+            },
+            range: 1
+        };
+
+        if ( typeof options === "object" ) {
+            for ( var i in options ) {
+                if ( options.hasOwnProperty(i) ) {
+                    this.settings[i] = options[i];
+                }
+            }
+        }
+
+        if ( typeof options === "string" ) {
+            this.setColor( options );
         }
     }
 
@@ -221,4 +231,5 @@ var Values = function ( options ) {
         }
         console.error('lightness expects a number');
     };
-}
+
+})();
