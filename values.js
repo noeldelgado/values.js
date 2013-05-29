@@ -8,10 +8,18 @@
         this.settings = {
             color: {
                 hex: "#37D7C2",
-                rgb: {r: 55,  g: 215, b: 194},
-                hsl: {h: 172, s: 67,  l: 53},
-                hslText: 'hsl(172, 67%, 53%)',
-                rgbText: 'rgb(55, 215, 194)'
+                rgb: {
+                    r: 55,
+                    g: 215,
+                    b: 194,
+                    text: 'rgb(55, 215, 194)'
+                },
+                hsl: {
+                    h: 172,
+                    s: 67,
+                    l: 53,
+                    text: 'hsl(172, 67%, 53%)'
+                },
             },
             range: 1
         };
@@ -125,8 +133,8 @@
             obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
-            obj.hslText = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
-            obj.rgbText = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
+            obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
+            obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
             tints.push( obj );
             i -= this.settings.range;
         };
@@ -151,8 +159,8 @@
             obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
-            obj.hslText = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
-            obj.rgbText = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
+            obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
+            obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
             shades.push( obj );
             i += this.settings.range;
         };
@@ -209,10 +217,9 @@
         this.settings.color = {
             hex: value,
             rgb: rgb,
-            hsl: {h: h, s: s, l: l},
-            hslText: 'hsl(' + h + ', ' + s + '%, ' + l + '%)',
-            rgbText: 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')'
+            hsl: {h: h, s: s, l: l, text: 'hsl(' + h + ', ' + s + '%, ' + l + '%)'}
         };
+        this.settings.color.rgb.text = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
         return this;
     };
 
@@ -245,8 +252,8 @@
             };
 
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
-            obj.hslText = 'hsl(' + h + ', ' + s + '%, ' + lightness + '%)';
-            obj.rgbText ='rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+            obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + lightness + '%)';
+            obj.rgb.text ='rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
 
             return include_base_color ? [this.getColor(), obj] : [obj];
         }

@@ -94,8 +94,8 @@ color.setRange( 10 );
 ```js
 color: {
     hex: "#37D7C2",
-    rgb: {r: 55,  g: 215, b: 194},
-    hsl: {h: 172, s: 67,  l: 53}
+    rgb: {r: 55,  g: 215, b: 194, text: 'rgb(55, 215, 194)' },
+    hsl: {h: 172, s: 67,  l: 53,  text: 'hsl(172, 67%, 53%)'}
 },
-distance: 1
+range: 1
 ```
