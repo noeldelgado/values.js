@@ -56,7 +56,7 @@ Accepts a positive or negative number
 ```js
 var lighten = color.lightness( 20 );
 // returns an array with a single object ith lightnedd increased
-// => [{ hex: "#33ccff", hsl: { h: 195, s: 100, l: 60 }, rgb: { r: 51, b: 255, g: 204 }]
+// => [{ hex: "#33ccff", hsl: { h: 195, s: 100, l: 60, text: 'hsl(195,100%,60%)' }, rgb: { r: 51, b: 255, g: 204, text: 'rgb(51,255,204)' }]
 
 var darken = color.lightness( -20 );
 // returns an array with a single object with lightness decreased
