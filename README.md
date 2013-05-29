@@ -60,7 +60,7 @@ var lighten = color.lightness( 20 );
 
 var darken = color.lightness( -20 );
 // returns an array with a single object with lightness decreased
-// => [{ hex: "#004d66", hsl: { h: 195, s: 100, l: 20 }, rgb: { r: 0, b: 102, g: 77 }]
+// => [{ hex: "#004d66", hsl: { h: 195, s: 100, l: 20, text: 'hsl(195,100%,20%)' }, rgb: { r: 0, b: 102, g: 77, text: 'rgb(0,102,77)' }]
 
 /*
  * The base color is excluded by default.
