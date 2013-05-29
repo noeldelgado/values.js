@@ -196,11 +196,14 @@
 
     Values.prototype.setColor = function( value ) {
         var rgb = HEXtoRGB( value ),
-            hsl = RGBtoHSL( rgb.r, rgb.g, rgb.b );
+            hsl = RGBtoHSL( rgb.r, rgb.g, rgb.b ),
+            h   = Math.round(hsl.h * 360),
+            s   = Math.round(hsl.s * 100),
+            l   = Math.round(hsl.l * 100);
         this.settings.color = {
             hex: value,
             rgb: rgb,
-            hsl: { h: hsl.h * 360, s: hsl.s * 100, l: hsl.l * 100 }
+            hsl: {h: h, s: s, l: l}
         };
         return this;
     };
