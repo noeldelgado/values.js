@@ -21,7 +21,7 @@
                     text: 'hsl(172, 67%, 53%)'
                 },
             },
-            range: 1
+            step: 1
         };
 
         if ( typeof options === "object" ) {
@@ -136,7 +136,7 @@
             obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
             obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
             tints.push( obj );
-            i -= this.settings.range;
+            i -= this.settings.step;
         };
 
         if ( include_base_color ) {
@@ -162,7 +162,7 @@
             obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
             obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
             shades.push( obj );
-            i += this.settings.range;
+            i += this.settings.step;
         };
 
         if ( include_base_color ) {
@@ -199,12 +199,12 @@
         return this.settings.color;
     };
 
-    Values.prototype.getRange = function() {
-        return this.settings.range;
+    Values.prototype.getStep = function() {
+        return this.settings.step;
     };
 
-    Values.prototype.setRange = function( value ) {
-        this.settings.range = value;
+    Values.prototype.setStep = function( value ) {
+        this.settings.step = value;
         return this;
     };
 

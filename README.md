@@ -75,9 +75,9 @@ var darken = color.lightness( -20 );
 var current = color.getColor();
 ```
 
-#### Get range (percentage)
+#### Get step (percentage)
 ```js
-var range = color.getRage();
+var step = color.getStep();
 ```
 
 #### Change Base Color
@@ -85,9 +85,9 @@ var range = color.getRage();
 color.setColor('#ff0000');
 ```
 
-#### Change range (percentage)
+#### Change step (percentage)
 ```js
-color.setRange( 10 );
+color.setStep( 10 );
 ```
 
 ## Defaults Options
@@ -97,5 +97,5 @@ color: {
     rgb: {r: 55,  g: 215, b: 194, text: 'rgb(55, 215, 194)' },
     hsl: {h: 172, s: 67,  l: 53,  text: 'hsl(172, 67%, 53%)'}
 },
-range: 1
+step: 1
 ```
