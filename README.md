@@ -80,12 +80,12 @@ var current = color.getColor();
 var step = color.getStep();
 ```
 
-#### Change Base Color
+#### setColor(string) # valid hex color
 ```js
 color.setColor('#ff0000');
 ```
 
-#### Change step (percentage)
+#### setStep (percentage)
 ```js
 color.setStep( 10 );
 ```
@@ -99,3 +99,6 @@ color: {
 },
 step: 1
 ```
+
+## Examples
+http://noeldelgado.github.io/shadowlord/
