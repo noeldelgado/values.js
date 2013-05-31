@@ -23,7 +23,7 @@ for (var i = 0; i < values.length; i += 1) {
 
 ## Methods
 
-#### Get Tints ( include_base_color = false : boolean )
+#### getTints ( include_base_color = false : boolean )
 ```js
 var tints = color.getTints();
 // returns an array of objects width the tints
@@ -34,7 +34,7 @@ var tints = color.getTints();
 */
 ```
 
-#### Get Shades ( include_base_color = false : boolean )
+#### getShades ( include_base_color = false : boolean )
 ```js
 var shades = color.getShades();
 // returns an array of objects with the shades (Base color is excluded)
@@ -45,13 +45,13 @@ var shades = color.getShades();
 */
 ```
 
-#### Get Both tints and shades
+#### getTintsAndShades
 ```js
 var allValues = color.getTintsAndShades();
 // returns an array of objects with both the tints and shades (Base color always included)
 ```
 
-#### Lightness ( value : number, include_base_color = false : bolean )
+#### lightness ( value : number, include_base_color = false : bolean )
 Accepts a positive or negative number
 ```js
 var lighten = color.lightness( 20 );
@@ -70,12 +70,12 @@ var darken = color.lightness( -20 );
 */
 ```
 
-#### Get Color
+#### getColor
 ```js
 var current = color.getColor();
 ```
 
-#### Get step (percentage)
+#### getStep (percentage)
 ```js
 var step = color.getStep();
 ```
