@@ -20,6 +20,7 @@
                     l: 53,
                     text: 'hsl(172, 67%, 53%)'
                 },
+                brightness: 61
             },
             step: 1
         };
@@ -120,6 +121,11 @@
         };
     };
 
+    var Brightness = function ( rgb ) {
+        var sum = rgb.r + rgb.g + rgb.b;
+        return Math.round( sum / (255 * 3) * 100);
+    };
+
     Values.prototype.getTints = function( include_base_color ) {
         var h = this.settings.color.hsl.h,
             s = this.settings.color.hsl.s,
@@ -130,11 +136,20 @@
         while ( i > parseInt(l, 10) ) {
             var rgb = HSLtoRGB( h / 360, s / 100, i / 100),
                 obj = {};
-            obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
+
+            obj.rgb = {
+                r: Math.round(rgb.r),
+                g: Math.round(rgb.g),
+                b: Math.round(rgb.b)
+            };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
+
             obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
             obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
+
+            obj.brightness = Brightness( obj.rgb );
+
             tints.push( obj );
             i -= this.settings.step;
         };
@@ -156,11 +171,20 @@
         while ( i < parseInt(l, 10) ) {
             var rgb = HSLtoRGB( h / 360, s / 100, i / 100),
                 obj = {};
-            obj.rgb = {r: Math.round(rgb.r), g: Math.round(rgb.g), b: Math.round(rgb.b) };
+
+            obj.rgb = {
+                r: Math.round(rgb.r),
+                g: Math.round(rgb.g),
+                b: Math.round(rgb.b)
+            };
             obj.hsl = {h: h, s: s, l: i};
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
+
             obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + i + '%)';
             obj.rgb.text = 'rgb(' + obj.rgb.r + ', ' + obj.rgb.g + ', ' + obj.rgb.b + ')';
+
+            obj.brightness = Brightness( obj.rgb );
+
             shades.push( obj );
             i += this.settings.step;
         };
@@ -214,12 +238,21 @@
             h   = Math.round(hsl.h * 360),
             s   = Math.round(hsl.s * 100),
             l   = Math.round(hsl.l * 100);
+
         this.settings.color = {
             hex: value,
             rgb: rgb,
-            hsl: {h: h, s: s, l: l, text: 'hsl(' + h + ', ' + s + '%, ' + l + '%)'}
+            hsl: {
+                h: h,
+                s: s,
+                l: l,
+                text: 'hsl(' + h + ', ' + s + '%, ' + l + '%)',
+            },
+            brightness: Brightness( rgb )
         };
+
         this.settings.color.rgb.text = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+
         return this;
     };
 
@@ -254,6 +287,8 @@
             obj.hex = RGBtoHEX( obj.rgb.r, obj.rgb.g, obj.rgb.b );
             obj.hsl.text = 'hsl(' + h + ', ' + s + '%, ' + lightness + '%)';
             obj.rgb.text ='rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+
+            obj.brightness = Brightness( obj.rgb );
 
             return include_base_color ? [this.getColor(), obj] : [obj];
         }
