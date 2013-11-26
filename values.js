@@ -5,14 +5,18 @@
     global.Values = function Values(options) {
         this.hex            = '#000000';
         this.rgb            = 'rgb(0, 0, 0)';
+        this.rgba           = 'rgba(0, 0, 0, 0)';
         this.hsl            = 'hsl(0, 0%, 0%)';
+        this.hsla           = 'hsla(0, 0%, 0%, 0)';
         this.brightness     = 0;
         this.step           = 1;
         this.tints          = [];
         this.shades         = [];
         this.all            = [];
         this._rgb           = {r: 0, g: 0, b: 0};
+        this._rgba          = {r: 0, g: 0, b: 0, a: 0};
         this._hsl           = {h: 0, s: 0, l: 0};
+        this._hsla          = {h: 0, s: 0, l: 0, a: 0};
 
         if ( typeof options === "string" ) {
             this.setColor( options );
@@ -112,8 +116,12 @@
         obj._rgb    = {r: r, g: g, b: b};
         obj._hsl    = {h: h, s: s, l: l};
         obj.hex     = RGBtoHEX(r, g, b);
+        obj._rgba   = obj._rgb.a = 1;
+        obj._hsla   = obj._hsl.a = 1;
         obj.rgb     = 'rgb('+r+', '+g+', '+b+')';
+        obj.rgba    = 'rgba('+r+', '+g+', '+b+', 1)';
         obj.hsl     = 'hsl('+h+', '+s+'%, '+l+'%)';
+        obj.hsla    = 'hsla('+h+', '+s+'%, '+l+'%, 1)';
         obj.brightness = getBrightness(obj._rgb);
 
         return obj;
