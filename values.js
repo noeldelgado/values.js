@@ -29,6 +29,10 @@
         },
         isRGB : function isRGB(value) {
             return /^\s*rgba?\s*\((\d+)\,\s*(\d+)\,\s*(\d+)(,\s*(\d+(\.\d+)?))?\)\s*$/.test(value);
+        },
+        RGBA : function RGBA(color, alpha) {
+            var rgb = HEXtoRGB(color);
+            return 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+alpha+')';
         }
     };
 

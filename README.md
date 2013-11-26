@@ -50,16 +50,6 @@ var allValues = color.getAll();
 // returns an array of objects with both the tints and shades (Base color always included)
 ```
 
-#### lightness ( value : number )
-Accepts a positive or negative number
-```js
-var lighten = color.lightness( 20 );
-// returns an array with a single object with lightness increased
-
-var darken = color.lightness( -20 );
-// returns an array with a single object with lightness decreased
-```
-
 #### setColor(string) # valid hex or rgb color
 ```js
 color.setColor('#ff0000');
@@ -70,4 +60,38 @@ color.setColor('rgb(255, 0, 0)');
 ```js
 color.setStep(10);
 color.setStep(5);
+```
+
+## Extras
+
+#### lightness ( value : number )
+Accepts a positive or negative number
+```js
+var lighten = color.lightness( 20 );
+// returns an array with a single object with lightness increased
+
+var darken = color.lightness( -20 );
+// returns an array with a single object with lightness decreased
+```
+
+## Values.Utils
+
+#### isHex(color)
+```js
+Values.Utils.isHEX('09c')     => true
+Values.Utils.isHEX('#09c')    => true
+Values.Utils.isHEX('#0099cc') => true
+Values.Utils.isHEX('09cc')    => false
+```
+
+#### isRGB(color)
+```js
+Values.Utils.isRGB('rgb(0,0,0)')    => true
+Values.Utils.isRGB('rgba(0,0,0,0)') => true
+Values.Utils.isRGB('0,0,0')         => false
+```
+
+#### RGBA(hex-color, alpha)
+```js
+Values.Utils.RGBA('#09c', 0.5) => "rgba(0, 153, 204, 0.5)"
 ```
