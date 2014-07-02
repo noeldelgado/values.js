@@ -8,9 +8,12 @@ http://noeldelgado.github.io/Values.js/
 ## Dependencies
 None
 
-## Usage Example
+## Usage
 ```js
-// include values.js to your project
+// node
+var Values = require('Values');
+
+// browser
 <script src="values.js"></script>
 ```
 
