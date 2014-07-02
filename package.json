@@ -1,0 +1,27 @@
+{
+  "name": "Values.js",
+  "version": "0.1.1",
+  "description": "Get the tints and shades of a color ",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noeldelgado/Values.js.git"
+  },
+  "keywords": [
+    "tints",
+    "shades",
+    "color"
+  ],
+  "author": "Noel Delgado (pixelia.me@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noeldelgado/Values.js/issues"
+  },
+  "homepage": "http://noeldelgado.github.io/Values.js/",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^0.4.0",
+    "grunt-contrib-uglify": "^0.4.0"
+  }
+}
