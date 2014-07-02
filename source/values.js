@@ -1,8 +1,8 @@
-(function (global) {
+(function () {
 
     "use strict";
 
-    global.Values = function Values(options) {
+    var Values = function Values(options) {
         this.hex            = '#000000';
         this.rgb            = 'rgb(0, 0, 0)';
         this.rgba           = 'rgba(0, 0, 0, 0)';
@@ -241,4 +241,8 @@
         return $shades.reverse();
     };
 
-})(window);
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = Values;
+    } else window.Values = Values;
+
+})();
