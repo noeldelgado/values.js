@@ -9,9 +9,10 @@ http://noeldelgado.github.io/Values.js/
 None
 
 ## Installation
-
-  // download or
-  bower install values.js
+```
+// download or
+bower install values.js
+```
 
 ## Usage
 ```js
