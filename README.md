@@ -9,11 +9,18 @@ http://noeldelgado.github.io/Values.js/
 None
 
 ## Installation
-```
-// download or
-~ npm install values.js
-~ bower install values.js
-```
+
+### Browser
+
+Just download [values.min.js](https://raw.githubusercontent.com/noeldelgado/Values.js/master/dist/values.min.js) and add it to your env.
+
+### Node
+
+`npm install values.js`
+
+### Bower
+
+`bower install values.js`
 
 ## Usage
 ```js
