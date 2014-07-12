@@ -8,6 +8,11 @@ http://noeldelgado.github.io/Values.js/
 ## Dependencies
 None
 
+## Installation
+
+  // download or
+  bower install values.js
+
 ## Usage
 ```js
 // node
