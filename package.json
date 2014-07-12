@@ -1,5 +1,5 @@
 {
-  "name": "Values.js",
+  "name": "values.js",
   "version": "0.1.1",
   "description": "Get the tints and shades of a color",
   "main": "dist/values.min.js",
