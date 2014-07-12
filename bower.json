@@ -1,0 +1,11 @@
+{
+    "name": "values.js",
+    "version": "0.1.1",
+    "main": "dist/values.min.js",
+    "ignore": [
+        "source",
+        "Gruntfile.js",
+        "package.json",
+        "README.md"
+    ]
+}
