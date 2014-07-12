@@ -25,7 +25,7 @@ Just download [values.min.js](https://raw.githubusercontent.com/noeldelgado/Valu
 ## Usage
 ```js
 // node
-var Values = require('Values');
+var Values = require('Values.js');
 
 // browser
 <script src="values.js"></script>
