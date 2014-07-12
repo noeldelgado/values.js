@@ -11,7 +11,8 @@ None
 ## Installation
 ```
 // download or
-bower install values.js
+~ npm install values.js
+~ bower install values.js
 ```
 
 ## Usage
