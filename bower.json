@@ -1,11 +1,30 @@
 {
   "name": "values.js",
   "version": "0.1.1",
-  "main": "dist/values.min.js",
+  "main": "./dist/values.min.js",
   "ignore": [
-    "source",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
     "Gruntfile.js",
     "package.json",
-    "README.md"
-  ]
+    "README.md",
+    "source"
+  ],
+  "homepage": "https://github.com/noeldelgado/Values.js",
+  "authors": [
+    "Noel Delgado <auhcsei@gmail.com>"
+  ],
+  "description": "JS libraryet the tints and shades of a color",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "tints",
+    "shades",
+    "color"
+  ],
+  "license": "MIT"
 }
