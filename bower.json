@@ -1,6 +1,6 @@
 {
   "name": "values.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./dist/values.min.js",
   "ignore": [
     "**/.*",
@@ -11,7 +11,8 @@
     "Gruntfile.js",
     "package.json",
     "README.md",
-    "source"
+    "source",
+    "bower.json"
   ],
   "homepage": "https://github.com/noeldelgado/Values.js",
   "authors": [
