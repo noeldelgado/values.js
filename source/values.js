@@ -25,8 +25,8 @@
 
     Values.Utils = {
         _reHEX : new RegExp("^(#)?([0-9a-fA-F]{3})([0-9a-fA-F]{3})?$"),
-        _reRGB : new RegExp("rgba?\\s*\\((\\d+)\\,\\s*(\\d+)\\,\\s*(\\d+)(,\\s*(\\d+(\\.\\d+)?))?\\)"),
-        _reHSL : new RegExp("hsla?\\((\\d+),\\s*([\\d.]+)%,\\s*([\\d.]+)%,?\\s*(?:0(\\.\\d+)?|1(\\.0)?)?\\)"),
+        _reRGB : new RegExp("rgba?\\s*\\((\\d+)\\,\\s*(\\d+)\\,\\s*(\\d+)(,\\s*(\\d+(\\.\\d+)?))?\\)","i"),
+        _reHSL : new RegExp("hsla?\\((\\d+),\\s*([\\d.]+)%,\\s*([\\d.]+)%,?\\s*(?:0(\\.\\d+)?|1(\\.0)?)?\\)","i"),
 
         isHEX : function isHEX(value) {
             return this._reHEX.test(value);

@@ -1,6 +1,6 @@
 {
   "name": "values.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Get the tints and shades of a color",
   "main": "dist/values.min.js",
   "repository": {

@@ -51,6 +51,7 @@ describe('values.utils', function() {
         assert.equal(Values.Utils.isRGB('rgb(256,0,0)'), false);
         assert.equal(Values.Utils.isRGB('rgb(0,256,0)'), false);
         assert.equal(Values.Utils.isRGB('rgb(0,0,256)'), false);
+        assert.equal(Values.Utils.isRGB('RGB(0,0,255)'), true);
     });
 
     it('should support hsl color formats', function() {
@@ -60,5 +61,6 @@ describe('values.utils', function() {
         assert.equal(Values.Utils.isHSL('hsl(361, 58%, 1%)'), false);
         assert.equal(Values.Utils.isHSL('hsl(360, 101%, 50%)'), false);
         assert.equal(Values.Utils.isHSL('hsl(360, 100%, 100%)'), true);
+        assert.equal(Values.Utils.isHSL('HSL(360, 100%, 100%)'), true);
     });
 });
