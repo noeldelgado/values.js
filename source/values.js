@@ -18,18 +18,56 @@
         this._hsl           = {h: 0, s: 0, l: 0};
         this._hsla          = {h: 0, s: 0, l: 0, a: 0};
 
-        if ( typeof options === "string" ) {
-            this.setColor( options );
+        if (typeof options === "string") {
+            this.setColor(options);
         }
     };
 
     Values.Utils = {
+        _reHEX : new RegExp("^(#)?([0-9a-fA-F]{3})([0-9a-fA-F]{3})?$"),
+        _reRGB : new RegExp("rgba?\\s*\\((\\d+)\\,\\s*(\\d+)\\,\\s*(\\d+)(,\\s*(\\d+(\\.\\d+)?))?\\)"),
+        _reHSL : new RegExp("hsla?\\((\\d+),\\s*([\\d.]+)%,\\s*([\\d.]+)%,?\\s*(?:0(\\.\\d+)?|1(\\.0)?)?\\)"),
+
         isHEX : function isHEX(value) {
-            return /^(#)?([0-9a-fA-F]{3})([0-9a-fA-F]{3})?$/.test(value);
+            return this._reHEX.test(value);
         },
         isRGB : function isRGB(value) {
-            return /^\s*rgba?\s*\((\d+)\,\s*(\d+)\,\s*(\d+)(,\s*(\d+(\.\d+)?))?\)\s*$/.test(value);
+            var result, rgb, r, g, b;
+
+            result = false;
+
+            if (this._reRGB.test(value)) {
+                rgb = value.match(this._reRGB);
+                r = rgb[1];
+                g = rgb[2];
+                b = rgb[3];
+
+                if ((r <= 255) && (g <= 255) && (b <= 255)) {
+                    result = true;
+                }
+            }
+
+            return result;
         },
+        isHSL : function isHSL(value) {
+            var result, hsl, h, s, l;
+
+            result = false;
+
+            if (this._reHSL.test(value)) {
+                hsl = value.match(this._reHSL);
+                h = hsl[1];
+                s = hsl[2];
+                l = hsl[3];
+
+                if ((h <= 360) && (s <= 100) && (l <= 100)) {
+                    result = true;
+                }
+            }
+
+            return result;
+        },
+
         RGBA : function RGBA(color, alpha) {
             var rgb = HEXtoRGB(color);
             return 'rgba('+rgb.r+', '+rgb.g+', '+rgb.b+', '+alpha+')';
@@ -92,7 +130,7 @@
         return v1;
     }
 
-     var HSLtoRGB = function(h, s, l) {
+    var HSLtoRGB = function(h, s, l) {
         var r, g, b;
         if (s == 0) {
             r = g = b = l;
@@ -132,16 +170,27 @@
     };
 
     Values.prototype.setColor = function setColor(value) {
-        var $hex, $rgb, $hsl, $h, $s, $l;
+        var $hex, $rgb, $hsl, $h, $s, $l, _rgb, _hsl
 
         if (Values.Utils.isHEX(value)) {
-            if (!/^#/.test(value)) value = '#' + value;
-            $hex = value;
-        }
+            if (!/^#/.test(value)) {
+                value = '#' + value;
+            }
 
-        if (Values.Utils.isRGB(value)) {
-            var _rgb = value.replace(/[^\d,]/g, '').split(',');
+            $hex = value;
+        } else if (Values.Utils.isRGB(value)) {
+            _rgb = value.replace(/[^\d,]/g, '').split(',');
+
             $hex = RGBtoHEX( _rgb[0], _rgb[1], _rgb[2] );
+        } else if (Values.Utils.isHSL(value)) {
+            _hsl = value.match(Values.Utils._reHSL);
+            _rgb = HSLtoRGB(_hsl[1]/360, _hsl[2]/100, _hsl[3]/100);
+
+            $hex = RGBtoHEX( _rgb.r, _rgb.g, _rgb.b );
+        } else {
+            console.error(value + ' is not a valid color');
+
+            return null;
         }
 
         $rgb    = HEXtoRGB($hex);
@@ -152,7 +201,7 @@
 
         __setValues(this, $rgb, $h, $s, $l);
 
-        this.step   = 1;
+        this.step = 1;
         this.__updateValues();
 
         return this;
@@ -180,7 +229,7 @@
         return this.all;
     };
 
-     Values.prototype.lightness = function lightness(value) {
+    Values.prototype.lightness = function lightness(value) {
         if ( typeof value === 'number') {
             var $h = this._hsl.h,
                 $s = this._hsl.s,

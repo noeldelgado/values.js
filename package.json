@@ -1,11 +1,14 @@
 {
   "name": "values.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Get the tints and shades of a color",
   "main": "dist/values.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/noeldelgado/Values.js.git"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "keywords": [
     "tints",
@@ -19,9 +22,10 @@
   },
   "homepage": "http://noeldelgado.github.io/Values.js/",
   "devDependencies": {
-    "grunt": "^0.4.4",
-    "grunt-contrib-watch": "^0.6.1",
-    "load-grunt-tasks": "^0.4.0",
-    "grunt-contrib-uglify": "^0.4.0"
+    "mocha": "^1.21.4",
+    "gulp": "^3.8.8",
+    "gulp-header": "^1.1.1",
+    "gulp-uglify": "^1.0.1",
+    "gulp-rename": "^1.2.0"
   }
 }
