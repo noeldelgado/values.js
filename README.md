@@ -44,12 +44,12 @@ console.log(color._hsl) 		// => { h: 204, s: 100, l: 50 }
 console.log(color.brightness)	// => 53
 
 color.getTints().forEach(function(tint) {
-	console.log(tint); 			
+	console.log(tint);
 	// => [Object] all the properties as above
 });
 
 color.getShades().forEach(function(shade) {
-	console.log(shade); 			
+	console.log(shade);
 	// => [Object] all the properties as above
 });
 
@@ -68,7 +68,7 @@ color.getAll().forEach(function(color) {
  * @property setColor <pubilc> [Function]
  * @argument value <required> [String] valid hex, rgb or hsl color format.
  * @return this [Values]
- * /
+ */
 
 color.setColor('ff0');
 color.setColor('rgb(255,255,0)');
@@ -85,7 +85,7 @@ color.setColor('hsl(60,100%,50%)');
  * @argument include_base_color <optional> [Boolean] (false)
  * @return tints [Array]
  */
- 
+
 var tints = color.getTints();
 ```
 
@@ -99,7 +99,7 @@ var tints = color.getTints();
  * @argument include_base_color <optional> [Boolean] (false)
  * @return shades [Array]
  */
- 
+
 var shades = color.getShades();
 ```
 
@@ -110,7 +110,7 @@ var shades = color.getShades();
  * @property getAll <public> [Function]
  * @return this.all [Array]
  */
- 
+
 var allValues = color.getAll();
 // this is the same as accessing the 'all' property (color.all)
 ```
@@ -123,7 +123,7 @@ var allValues = color.getAll();
  * @argument step <required> [Number] (1)
  * @return this [Values]
  */
- 
+
 color.setStep(10);
 // console.log(color.getAll().length) => 11
 
@@ -145,7 +145,7 @@ color.setStep(1);
  * @argument value <required> [Number]
  * @return obj [Object]
  */
- 
+
 var lighten = color.lightness(20);
 var darken = color.lightness(-20);
 ```
