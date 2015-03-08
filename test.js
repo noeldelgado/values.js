@@ -1,7 +1,7 @@
 "use strict"
 
 var assert = require('assert')
-var Values = require('../')
+var Values = require('./')
 var color = new Values('0099cc')
 
 describe('new instance setup', function() {

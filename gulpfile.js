@@ -10,7 +10,7 @@ gulp.task('test', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('test/test.js', ['test']);
+    gulp.watch('test.js', ['test']);
     gulp.watch('index.js', ['test']);
 });
 

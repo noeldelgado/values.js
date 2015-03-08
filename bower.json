@@ -8,10 +8,8 @@
     "bower_components",
     "test",
     "tests",
-    "Gruntfile.js",
+    "gulpfile.js",
     "package.json",
-    "README.md",
-    "source",
     "bower.json"
   ],
   "homepage": "https://github.com/noeldelgado/Values.js",
