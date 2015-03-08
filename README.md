@@ -1,158 +1,144 @@
-# Values.js
+## Values.js
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
 Shades are dark values that are made by mixing a color with black, which reduces lightness.
 
 http://noeldelgado.github.io/Values.js/
 
-## Dependencies
-None
+### Installation
 
-## Installation
-
-### Browser
-
-Just download [values.min.js](https://raw.githubusercontent.com/noeldelgado/Values.js/master/dist/values.min.js) and add it to your env.
-
-### Node
+#### Node
 
 `npm install values.js`
 
-### Bower
+#### Bower
 
 `bower install values.js`
 
-## Usage
+### Usage
 ```js
 // node
 var Values = require('Values.js');
 
 // browser
-<script src="values.js"></script>
+<script src="path-to-values/index.js"></script>
 ```
-### Example
+#### Example
 ```js
 var color = new Values('#0099ff');
 
-console.log(color.hex) 			// => "#0099ff"
-console.log(color.rgb) 			// => "rgb(0, 153, 255)"
-console.log(color.hsl) 			// => "hsl(204, 100%, 50%)"
+console.log(color.hex)              // => "0099ff"
+console.log(color.rgb)              // => {r:0, g:153, b:255}
+console.log(color.hsl) 	            // => {h:204, s: 100, l: 50}
 
-console.log(color._rgb) 		// => { r: 0, g: 153, b: 255 }
-console.log(color._hsl) 		// => { h: 204, s: 100, l: 50 }
+console.log(color.hexString())      // => "#0099ff"
+console.log(color.rgbString()) 	    // => "rgb(0, 153, 255)"
+console.log(color.hslString())      // => "hsl(204, 100%, 50%)"
 
-console.log(color.brightness)	// => 53
+console.log(color.getBrightness())  // => 53
 
-color.getTints().forEach(function(tint) {
-	console.log(tint);
-	// => [Object] all the properties as above
+color.tints().forEach(function(tint) {
+	console.log(tint);     // => [Value instance]
 });
 
-color.getShades().forEach(function(shade) {
-	console.log(shade);
-	// => [Object] all the properties as above
+color.shades().forEach(function(shade) {
+	console.log(shade);    // => [Value instance]
 });
 
-// tints, shades and the original color
-color.getAll().forEach(function(color) {
-  console.log(color); // => Object
+// tints, original color and shades
+color.all().forEach(function(color) {
+    console.log(color);   // => [Value instance]
 });
 ```
 
-## Methods
+### Methods
 
-### setColor
+#### setColor
 ```js
 /**
- * Update the base color as well as its tints and shades.
- * @property setColor <pubilc> [Function]
- * @argument value <required> [String] valid hex, rgb or hsl color format.
- * @return this [Values]
- */
-
+Sets the base color for which all operations are based. Updates the instance's properties.
+@method setColor <public> [Function]
+@param color <required> [String] A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
+@return Values instance || Error [Object]
+*/
 color.setColor('ff0');
 color.setColor('rgb(255,255,0)');
 color.setColor('hsl(60,100%,50%)');
 ```
 
-### getTints
+#### tint
 ```js
 /**
- * Return the tints of the instantiated color.
- * The base color information is excluded by default from the Array.
- * You can include the base color to the results passing true as argument.
- * @property getTints <public> [Function]
- * @argument include_base_color <optional> [Boolean] (false)
- * @return tints [Array]
- */
+Lightens the instance by mixing it with white as specified by @percentage.
+@method tint <public> [Function]
+@param percentage <optional> [Number] {50}
+@return new Values instance [Object]
+*/
 
-var tints = color.getTints();
+color.tint();
+color.tint(10);
+color.tint(24);
 ```
 
-### getShades
+#### shade
 ```js
 /**
- * Return the shades of the instantiated color.
- * The base color information is excluded by default from the Array.
- * You can include the base color to the results passing true as argument.
- * @property getShades <public> [Function]
- * @argument include_base_color <optional> [Boolean] (false)
- * @return shades [Array]
- */
+Darkens the instance color by mixing it with black as specified by @percentage.
+@method shade <public> [Function]
+@param percentage <optional> [Number] {50}
+@return new Values instance [Object]
+*/
 
-var shades = color.getShades();
+color.shade();
+color.shade(9);
+color.shade(31);
 ```
 
-### getAll
+#### tints
+````js
+/**
+Generates the tints of the instance color as specified by @percentage.
+@method tints <public> [Function]
+@param percentage <optional> [Number] {10}
+@return Array of Values instances [Array]
+*/
+
+color.tints(20).forEach(function(tint) {
+    console.log(tint)
+})
+````
+
+#### shades
+````js
+/**
+Generates the shades of the instance color as specified by @percentage.
+@method shades <public> [Function]
+@param percentage <optional> [Number] {10}
+@return Array of Values instances [Array]
+*/
+
+color.shades(20).forEach(function(shade) {
+    console.log(shade)
+})
+````
+
+#### all
 ```js
 /**
- * Return the base color, the tints and shades of the color.
- * @property getAll <public> [Function]
- * @return this.all [Array]
- */
+Generates the tints and shades of the instance color as specified by @percentage.
+@method all <public> [Function]
+@param percentage <optional> [Number] {10}
+@return Array of Values instances [Array]
+*/
 
-var allValues = color.getAll();
-// this is the same as accessing the 'all' property (color.all)
+color.all().forEach(function(color) {
+    console.log(color)
+})
 ```
 
-### setStep
-```js
-/**
- * The percentage distance that will be used to generate the tints and shades.
- * @property setStep <public> [Function]
- * @argument step <required> [Number] (1)
- * @return this [Values]
- */
+### Values.Utils
 
-color.setStep(10);
-// console.log(color.getAll().length) => 11
-
-color.setStep(5);
-// console.log(color.getAll().length) => 21
-
-color.setStep(1);
-// console.log(color.getAll().length) => 101
-```
-
-## Extras
-
-### lightness
-```js
-/**
- * Returns a new Object with the lightness applied (increased or decreased).
- * It accepts a positive or negative number.
- * @property lightness <public> [Function]
- * @argument value <required> [Number]
- * @return obj [Object]
- */
-
-var lighten = color.lightness(20);
-var darken = color.lightness(-20);
-```
-
-## Values.Utils
-
-### isHex(color)
+#### isHex(color)
 ```js
 Values.Utils.isHEX('09c')     => true
 Values.Utils.isHEX('#09c')    => true
@@ -160,21 +146,16 @@ Values.Utils.isHEX('#0099cc') => true
 Values.Utils.isHEX('09cc')    => false
 ```
 
-### isRGB(color)
+#### isRGB(color)
 ```js
 Values.Utils.isRGB('rgb(0,0,0)')    => true
-Values.Utils.isRGB('rgba(0,0,0,0)') => true
+Values.Utils.isRGB('rgba(0,0,0,.0)') => true
 Values.Utils.isRGB('0,0,0')         => false
 ```
 
-### isHSL(color)
+#### isHSL(color)
 ```js
 Values.Utils.isHSL('hsl(198,58%,1%)')      => true
 Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
 Values.Utils.isHSl('hsl(361,10%,10%)')     => false
-```
-
-### RGBA(hex-color, alpha)
-```js
-Values.Utils.RGBA('#09c', 0.5) => "rgba(0, 153, 204, 0.5)"
 ```

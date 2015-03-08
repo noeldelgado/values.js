@@ -1,31 +1,29 @@
 {
   "name": "values.js",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "Get the tints and shades of a color",
-  "main": "dist/values.min.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/noeldelgado/Values.js.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "gulp"
   },
   "keywords": [
     "tints",
     "shades",
     "color"
   ],
-  "author": "Noel Delgado",
+  "author": "Noel Delgado <pixelia.me@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/noeldelgado/Values.js/issues"
   },
   "homepage": "http://noeldelgado.github.io/Values.js/",
   "devDependencies": {
-    "mocha": "^1.21.4",
     "gulp": "^3.8.8",
-    "gulp-header": "^1.1.1",
-    "gulp-uglify": "^1.0.1",
-    "gulp-rename": "^1.2.0"
+    "mocha": "^1.21.4"
   }
 }
