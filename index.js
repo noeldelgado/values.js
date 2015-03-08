@@ -1,6 +1,6 @@
 /**
  * values.js - Get the tints and shades of a color
- * @version v1.0.0
+ * @version v1.0.1
  * @link http://noeldelgado.github.io/Values.js/
  * @license MIT
  */
@@ -188,17 +188,14 @@
     @return Array of Values instances [Array]
     */
     Values.prototype.tints = function tint(percentage) {
-        var i = percentage = (percentage || 10), tints = {}, uniques = [];
+        var i = percentage = (percentage || 10), tints = [];
 
         while (i <= 100) {
-            var tint = this.tint(i);
-            tints[tint.hex] = tint;
+            tints.push(this.tint(i));
             i += percentage;
         }
 
-        for (var key in tints) uniques.push(tints[key]);
-
-        return uniques;
+        return tints;
     };
 
     /**
@@ -208,17 +205,14 @@
     @return Array of Values instances [Array]
     */
     Values.prototype.shades = function tint(percentage) {
-        var i = percentage = (percentage || 10), shades = {}, uniques = [];
+        var i = percentage = (percentage || 10), shades = [];
 
         while (i <= 100) {
-            var shade = this.shade(i);
-            shades[shade.hex] = shade;
+            shades.push(this.shade(i));
             i += percentage;
         }
 
-        for (var key in shades) uniques.push(shades[key]);
-
-        return uniques;
+        return shades;
     };
 
     /**
@@ -322,4 +316,4 @@
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports = Values;
     } else window.Values = Values;
-})()
+})();
