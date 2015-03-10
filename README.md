@@ -159,3 +159,9 @@ Values.Utils.isHSL('hsl(198,58%,1%)')      => true
 Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
 Values.Utils.isHSl('hsl(361,10%,10%)')     => false
 ```
+
+### Dev
+```bash
+npm install     # install dev-dependencies
+npm run dev     # watch for changes and run tests
+```

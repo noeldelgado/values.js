@@ -10,9 +10,10 @@
   },
   "scripts": {
     "test": "mocha",
-    "dev": "gulp"
+    "test:watch": "npm run test -- -w",
+    "dev": "npm run test:watch"
   },
-  "files" : [
+  "files": [
     "index.js"
   ],
   "keywords": [
@@ -26,7 +27,6 @@
   },
   "homepage": "http://noeldelgado.github.io/Values.js/",
   "devDependencies": {
-    "gulp": "^3.8.8",
     "mocha": "^1.21.4"
   }
 }
