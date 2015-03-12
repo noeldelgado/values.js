@@ -18,7 +18,7 @@ http://noeldelgado.github.io/Values.js/
 ### Usage
 ```js
 // node
-var Values = require('Values.js');
+var Values = require('values.js');
 
 // browser
 <script src="path-to-values/index.js"></script>
