@@ -1,4 +1,7 @@
 ## Values.js
+[![npm-image](https://img.shields.io/npm/v/values.js.svg?style=flat-square)](https://www.npmjs.com/package/values.js)
+![bower-image](https://img.shields.io/bower/v/values.js.svg?style=flat-square)
+
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
 Shades are dark values that are made by mixing a color with black, which reduces lightness.
