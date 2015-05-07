@@ -99,7 +99,7 @@
             s /= 100;
             l /= 100;
 
-            if (s == 0) r = g = b = l;
+            if (s === 0) r = g = b = l;
             else {
                 var q = (l < 0.5) ? (l * (1 + s)) : (l + s - l * s);
                 var p = (2 * l - q);
@@ -274,7 +274,7 @@
         this.rgb = Utils.HEXtoRGB(color);
         this.hsl = Utils.RGBtoHSL(this.rgb.r, this.rgb.g, this.rgb.b);
 
-        return this
+        return this;
     };
 
     /**
