@@ -1,6 +1,6 @@
 /**
  * values.js - Get the tints and shades of a color
- * @version v1.0.2
+ * @version v1.0.3
  * @link http://noeldelgado.github.io/Values.js/
  * @license MIT
  */
@@ -72,9 +72,9 @@
                 var d = (max - min);
                 s = (l > 0.5) ? (d / (2 - max - min)) : (d / (max + min));
 
-                if (max === r)      h = ((g - b) / d + (g < b ? 6 : 0));
-                else if (max === g) h = ((b - r) / d + 2);
-                else if (max === b) h = ((r - g) / d + 4);
+                if (max === r)      {h = ((g - b) / d + (g < b ? 6 : 0));}
+                else if (max === g) {h = ((b - r) / d + 2);}
+                else if (max === b) {h = ((r - g) / d + 4);}
 
                 h /= 6;
             }
@@ -83,12 +83,12 @@
         },
 
         HUEtoRGB : function HUEtoRGB(v1, v2, vh) {
-            if (vh < 0) vh += 1;
-            if (vh > 1) vh -= 1;
+            if (vh < 0) {vh += 1;}
+            if (vh > 1) {vh -= 1;}
 
-            if ((6 * vh) < 1) return (v1 + (v2 - v1) * 6 * vh);
-            if ((2 * vh) < 1) return v2;
-            if ((3 * vh) < 2) return (v1 + (v2 - v1) * ((2/3) - vh) * 6);
+            if ((6 * vh) < 1) {return (v1 + (v2 - v1) * 6 * vh);}
+            if ((2 * vh) < 1) {return v2;}
+            if ((3 * vh) < 2) {return (v1 + (v2 - v1) * ((2/3) - vh) * 6);}
             return v1;
         },
 
@@ -99,7 +99,7 @@
             s /= 100;
             l /= 100;
 
-            if (s === 0) r = g = b = l;
+            if (s === 0) {r = g = b = l;}
             else {
                 var q = (l < 0.5) ? (l * (1 + s)) : (l + s - l * s);
                 var p = (2 * l - q);
@@ -112,13 +112,13 @@
         },
 
         mix : function mix(color1, color2, percentage) {
-            percentage = percentage || 50;
+            percentage = (typeof percentage === 'undefined') ? 50 : percentage;
 
             var weight = (percentage / 100.0);
             var w = (weight * 2 - 1);
             var a = 0;
 
-            var w1 = (((w * a == -1) ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
+            var w1 = (((w * a === -1) ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
             var w2 = (1 - w1);
 
             var r = Math.round(color1.rgb.r * w1 + color2.rgb.r * w2);
@@ -315,5 +315,5 @@
 
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports = Values;
-    } else window.Values = Values;
+    } else {window.Values = Values;}
 })();

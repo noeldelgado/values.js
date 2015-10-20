@@ -1,13 +1,10 @@
+/* globals describe, it */
 var assert = require('assert');
 var Values = require('./');
 var color = new Values('0099cc');
 
 describe('new instance setup', function() {
     it('should instantiate correctly', function() {
-        var hex = color.hex;
-        var rgb = color.rgb;
-        var hsl = color.hsl;
-
         assert.equal(color instanceof Values, true);
         assert.equal(color.hex, '0099cc');
         assert.equal(color.rgb.r, 0);
@@ -24,10 +21,6 @@ describe('values.methods', function() {
         it('should update instance with setColor', function() {
             color.setColor('rgb(0,255,255)');
 
-            var hex = color.hex;
-            var rgb = color.rgb;
-            var hsl = color.hsl;
-
             assert.equal(color.hex, '00ffff');
             assert.equal(color.rgb.r, 0);
             assert.equal(color.rgb.g, 255);
@@ -39,20 +32,40 @@ describe('values.methods', function() {
     });
 
     describe('values.method.tint', function() {
+        it('should default to 50% tint', function() {
+            assert.equal(color.tint().hexString(), '#80ffff');
+        });
+
+        it('should return original value', function() {
+            assert.equal(color.tint(0).hexString(), '#00ffff');
+        });
+
         it('should calculate independent tints', function() {
             assert.equal(color.tint(10).hexString(), '#19ffff');
             assert.equal(color.tint(20).hexString(), '#33ffff');
             assert.equal(color.tint(30).hexString(), '#4dffff');
+            assert.equal(color.tint(40).hexString(), '#66ffff');
+            assert.equal(color.tint(50).hexString(), '#80ffff');
             assert.equal(color.tint(10).rgbString(), 'rgb(25, 255, 255)');
             assert.equal(color.tint(10).hslString(), 'hsl(180, 100%, 55%)');
         });
     });
 
     describe('values.method.shade', function() {
+        it('should default to 50% shade', function() {
+            assert.equal(color.shade().hexString(), '#008080');
+        });
+
+        it('should return original value', function() {
+            assert.equal(color.shade(0).hexString(), '#00ffff');
+        });
+
         it('should calculate independent shades', function() {
             assert.equal(color.shade(10).hexString(), '#00e6e6');
             assert.equal(color.shade(20).hexString(), '#00cccc');
             assert.equal(color.shade(30).hexString(), '#00b3b3');
+            assert.equal(color.shade(40).hexString(), '#009999');
+            assert.equal(color.shade(50).hexString(), '#008080');
             assert.equal(color.shade(10).rgbString(), 'rgb(0, 230, 230)');
             assert.equal(color.shade(10).hslString(), 'hsl(180, 100%, 45%)');
         });
