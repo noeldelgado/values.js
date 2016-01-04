@@ -1,4 +1,4 @@
-## Values.js
+## values.js
 [![npm-image](https://img.shields.io/npm/v/values.js.svg?style=flat-square)](https://www.npmjs.com/package/values.js)
 ![bower-image](https://img.shields.io/bower/v/values.js.svg?style=flat-square)
 
@@ -10,25 +10,18 @@ http://noeldelgado.github.io/Values.js/
 
 ### Installation
 
-#### Node
+**NPM**
 
 `npm install values.js`
 
-#### Bower
+**Bower**
 
 `bower install values.js`
 
-### Usage
+### Usage Example
 ```js
-// node
-var Values = require('values.js');
-
-// browser
-<script src="path-to-values/index.js"></script>
-```
-#### Example
-```js
-var color = new Values('#0099ff');
+var Values = require('values.js')
+  , color = new Values('#0099ff');
 
 console.log(color.hex)              // => "0099ff"
 console.log(color.rgb)              // => {r:0, g:153, b:255}
@@ -41,11 +34,11 @@ console.log(color.hslString())      // => "hsl(204, 100%, 50%)"
 console.log(color.getBrightness())  // => 53
 
 color.tints().forEach(function(tint) {
-	console.log(tint);     // => [Value instance]
+	console.log(tint);     // => [Values instance]
 });
 
 color.shades().forEach(function(shade) {
-	console.log(shade);    // => [Value instance]
+	console.log(shade);    // => [Values instance]
 });
 
 // tints, original color and shades
@@ -54,16 +47,15 @@ color.all().forEach(function(color) {
 });
 ```
 
-### Methods
+### Instance Methods
 
 #### setColor
 ```js
-/**
-Sets the base color for which all operations are based. Updates the instance's properties.
-@method setColor <public> [Function]
-@param color <required> [String] A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
-@return Values instance || Error [Object]
-*/
+/* Sets the base color for which all operations are based. Updates the instance's properties.
+ * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
+ * @return {Values|Error}
+ */
+ 
 color.setColor('ff0');
 color.setColor('rgb(255,255,0)');
 color.setColor('hsl(60,100%,50%)');
@@ -71,12 +63,10 @@ color.setColor('hsl(60,100%,50%)');
 
 #### tint
 ```js
-/**
-Lightens the instance by mixing it with white as specified by @percentage.
-@method tint <public> [Function]
-@param percentage <optional> [Number] {50}
-@return new Values instance [Object]
-*/
+/* Lightens the instance by mixing it with white as specified by @percentage.
+ * @param {number} [percentage=50]
+ * @return {Values}
+ */
 
 color.tint();
 color.tint(10);
@@ -85,12 +75,10 @@ color.tint(24);
 
 #### shade
 ```js
-/**
-Darkens the instance color by mixing it with black as specified by @percentage.
-@method shade <public> [Function]
-@param percentage <optional> [Number] {50}
-@return new Values instance [Object]
-*/
+/* Darkens the instance color by mixing it with black as specified by @percentage.
+ * @param {number} [percentage=50]
+ * @return {Values}
+ */
 
 color.shade();
 color.shade(9);
@@ -99,47 +87,50 @@ color.shade(31);
 
 #### tints
 ````js
-/**
-Generates the tints of the instance color as specified by @percentage.
-@method tints <public> [Function]
-@param percentage <optional> [Number] {10}
-@return Array of Values instances [Array]
-*/
+/* Generates the tints of the instance color as specified by @percentage.
+ * @param {number} [percentage=10]
+ * @return {Array<Values>}
+ */
 
-color.tints(20).forEach(function(tint) {
-    console.log(tint)
+color.tints(20).forEach(function (tint) {
+  console.log(tint)
 })
 ````
 
 #### shades
 ````js
-/**
-Generates the shades of the instance color as specified by @percentage.
-@method shades <public> [Function]
-@param percentage <optional> [Number] {10}
-@return Array of Values instances [Array]
+/* Generates the shades of the instance color as specified by @percentage.
+ * @param {number} [percentage=10]
+ * @return {Array<Values>}
 */
 
-color.shades(20).forEach(function(shade) {
-    console.log(shade)
+color.shades(20).forEach(function (shade) {
+  console.log(shade)
 })
 ````
 
 #### all
 ```js
-/**
-Generates the tints and shades of the instance color as specified by @percentage.
-@method all <public> [Function]
-@param percentage <optional> [Number] {10}
-@return Array of Values instances [Array]
-*/
+/* Generates the tints and shades of the instance color as specified by @percentage.
+ * @param {number} [percentage=10]
+ * @return {Array<Values>}
+ */
 
-color.all().forEach(function(color) {
-    console.log(color)
+color.all().forEach(function (color) {
+  console.log(color)
 })
 ```
 
-### Values.Utils
+#### getBrightness
+````js
+/* Calculates the brightness of the instance base-color.
+ * @return {number} the base-color brightness.
+ */
+color.getBrightness();
+````
+
+
+### Static Methods (Utils)
 
 #### isHex(color)
 ```js
@@ -164,7 +155,8 @@ Values.Utils.isHSl('hsl(361,10%,10%)')     => false
 ```
 
 ### Dev
-```bash
-npm install     # install dev-dependencies
+```sh
+npm install     # install dependencies
+npm test		# run the tests
 npm run dev     # watch for changes and run tests
 ```

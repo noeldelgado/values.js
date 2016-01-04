@@ -141,8 +141,7 @@
 
   Values.Utils = Utils;
 
-  /**
-   * Sets the base color for which all operations are based. Updates the instance’s properties.
+  /* Sets the base color for which all operations are based. Updates the instance’s properties.
    * @public
    * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
    * @return {Values|Error}
@@ -159,8 +158,7 @@
     return new Error('Invalid Color Format');
   };
 
-  /**
-   * Lightens the instance by mixing it with white as specified by @percentage.
+  /* Lightens the instance by mixing it with white as specified by @percentage.
    * @public
    * @param {number} [percentage]
    * @return {Values}
@@ -169,8 +167,7 @@
     return Utils.mix({rgb: {r: 255, g: 255, b: 255}}, this, percentage);
   };
 
-  /**
-   * Darkens the instance color by mixing it with black as specified by @percentage.
+  /* Darkens the instance color by mixing it with black as specified by @percentage.
    * @public
    * @param {number} [percentage]
    * @return {Values}
@@ -179,8 +176,7 @@
     return Utils.mix({rgb: {r: 0, g: 0, b: 0}}, this, percentage);
   };
 
-  /**
-   * Generates the tints of the instance color as specified by @percentage.
+  /* Generates the tints of the instance color as specified by @percentage.
    * @public
    * @param {number} [percentage=10]
    * @return {Array<Values>}
@@ -196,8 +192,7 @@
     return tints;
   };
 
-  /**
-   * Generates the shades of the instance color as specified by @percentage.
+  /* Generates the shades of the instance color as specified by @percentage.
    * @public
    * @param {number} [percentage=10]
    * @return {Array<Values>}
@@ -213,8 +208,7 @@
     return shades;
   };
 
-  /**
-   * Generates the tints and shades of the instance color as specified by @percentage.
+  /* Generates the tints and shades of the instance color as specified by @percentage.
    * @public
    * @param {number} [percentage]
    * @return {Array<Values>}
@@ -227,8 +221,7 @@
     return tints.concat(shades);
   };
 
-  /**
-   * Calculates the brightness of the instance base-color.
+  /* Calculates the brightness of the instance base-color.
    * @return {number} the base-color brightness.
    */
   Values.prototype.getBrightness = function getBrightness () {
@@ -236,32 +229,28 @@
     return Math.round(sum / (255 * 3) * 100);
   };
 
-  /**
-   * Returns the instance color in hexadecimal string form.
+  /* Returns the instance color in hexadecimal string form.
    * @returns {string} e.g. '#000000'
    */
   Values.prototype.hexString = function hexString () {
     return ('#' + this.hex);
   };
 
-  /**
-   * Returns the instance color in rgb string form.
+  /* Returns the instance color in rgb string form.
    * @returns {string} e.g. 'rgb(0, 0, 0)'
    */
   Values.prototype.rgbString = function rgbString () {
     return ('rgb(' + this.rgb.r + ', ' + this.rgb.g + ', ' + this.rgb.b + ')');
   };
 
-  /**
-   * Returns the instance color in hsl string form.
+  /* Returns the instance color in hsl string form.
    * @returns {string} e.g. 'hsl(0, 0%, 0%)'
    */
   Values.prototype.hslString = function hslString () {
     return ('hsl(' + this.hsl.h + ', ' + this.hsl.s + '%, ' + this.hsl.l + '%)');
   };
 
-  /**
-   * Updates the instance base-color properties from a valid hex string.
+  /* Updates the instance base-color properties from a valid hex string.
    * @private
    * @param {string} color
    */
@@ -273,8 +262,7 @@
     return this;
   };
 
-  /**
-   * Updates the instance base-color properties from a valid rgb string.
+  /* Updates the instance base-color properties from a valid rgb string.
    * @private
    * @param {string} color
    */
@@ -291,8 +279,7 @@
     return this;
   };
 
-  /**
-   * Updates the instance base-color properties from a valid hsl string.
+  /* Updates the instance base-color properties from a valid hsl string.
    * @private
    * @param {string} color
    */
