@@ -160,3 +160,6 @@ npm install     # install dependencies
 npm test		# run the tests
 npm run dev     # watch for changes and run tests
 ```
+
+### License
+MIT © [Noel Delgado](http://pixelia.me/)
