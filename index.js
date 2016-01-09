@@ -1,7 +1,7 @@
 /**
  * values.js - Get the tints and shades of a color
  * @version v1.0.3
- * @link http://noeldelgado.github.io/Values.js/
+ * @link http://noeldelgado.github.io/values.js/
  * @license MIT
  */
 (function () {

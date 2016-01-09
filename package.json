@@ -6,7 +6,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/noeldelgado/Values.js.git"
+    "url": "https://github.com/noeldelgado/values.js.git"
   },
   "scripts": {
     "test": "mocha",
@@ -23,9 +23,9 @@
   ],
   "author": "Noel Delgado <pixelia.me@gmail.com> (http://pixelia.me)",
   "bugs": {
-    "url": "https://github.com/noeldelgado/Values.js/issues"
+    "url": "https://github.com/noeldelgado/values.js/issues"
   },
-  "homepage": "http://noeldelgado.github.io/Values.js/",
+  "homepage": "http://noeldelgado.github.io/values.js/",
   "devDependencies": {
     "mocha": "^1.21.4"
   }

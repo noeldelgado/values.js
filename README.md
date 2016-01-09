@@ -6,7 +6,7 @@ The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
 Shades are dark values that are made by mixing a color with black, which reduces lightness.
 
-http://noeldelgado.github.io/Values.js/
+http://noeldelgado.github.io/values.js/
 
 ### Installation
 
@@ -55,7 +55,7 @@ color.all().forEach(function(color) {
  * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
  * @return {Values|Error}
  */
- 
+
 color.setColor('ff0');
 color.setColor('rgb(255,255,0)');
 color.setColor('hsl(60,100%,50%)');
