@@ -1,0 +1,69 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "Prototypes skeleton",
+  "main": "index.js",
+  "scripts": {
+    "build": "tarima -fdV",
+    "watch": "tarima -wsdV",
+    "start": "npm run watch"
+  },
+  "author": "Noel Delgado <auhcsei@gmail.com> (http://pixelia.me)",
+  "license": "MIT",
+  "__devDependencies__": [
+    "buble",
+    "postcss",
+    "postcss-cssnext",
+    "postcss-discard-comments",
+    "postcss-import",
+    "rollup",
+    "rollup-plugin-buble",
+    "rollup-plugin-commonjs",
+    "rollup-plugin-node-resolve",
+    "tarima-cli",
+    "tarima-lr"
+  ],
+  "tarima": {
+    "bundle": [
+      "**/_entries/**"
+    ],
+    "public": "./",
+    "src": "src/**/*",
+    "dest": "./build",
+    "watch": "**.html",
+    "filter": [
+      "**/_entries/**"
+    ],
+    "devPlugins": [
+      "tarima-lr"
+    ],
+    "rename": "**/_entries/**:{filepath/1/_entries}/{filename}.{extname}",
+    "bundleOptions": {
+      "extensions": {
+        "js": "es6",
+        "css": "post"
+      },
+      "rollup": {
+        "format": "iife",
+        "plugins": [
+          "rollup-plugin-buble",
+          "rollup-plugin-commonjs",
+          "rollup-plugin-node-resolve"
+        ],
+        "rollup-plugin-node-resolve": {
+          "module": true,
+          "jsnext": true,
+          "main": true,
+          "browser": true
+        }
+      },
+      "postcss": {
+        "plugins": [
+          "postcss-import",
+          "postcss-cssnext",
+          "postcss-discard-comments"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+:root{
+
+  font-size:12px;
+  font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*{
+  margin:0;
+  box-sizing:border-box;
+}
+
+body{
+  background-color:#f0f0f0;
+  color:rgb(96, 96, 96);
+  line-height:1.618;
+}
+
+:link,:visited{
+  color:#3498DB;
+}
+
+h1{
+  font-size:36px;
+  font-size:3rem;
+  line-height:1.15em;
+  padding:0 0 .5em;
+  font-weight:200;
+}
+
+h2{
+  font-size:18px;
+  font-size:1.5rem;
+  padding:0 0 1em;
+}
+
+h3{
+  font-size:14.399px;
+  font-size:1.2rem;
+  padding:0 0 1em;
+}
+
+section{
+  padding:30px 0 24px;
+  padding:2.5rem 0 2rem;
+  border-bottom:3px solid rgb(233, 233, 233)
+}
+
+section:after{
+
+  content:".";
+
+  display:block;
+
+  clear:both;
+
+  visibility:hidden;
+
+  line-height:0;
+
+  height:0;
+}
+
+section:last-child{
+
+  border-bottom-width:0;
+}
+
+section pre:last-of-type{
+
+  margin:0;
+}
+
+article pre{
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}
+
+pre{
+  font-size:13.2px;
+  font-size:1.1rem;
+  padding:15px 20px;
+  margin:0 0 18px;
+  margin:0 0 1.5rem;
+  overflow:auto;
+
+  background-color:rgb(96, 96, 96);
+  color:#f0f0f0;
+  border-radius:3px;
+}
+
+.main-content{
+  padding:0 15px;
+}
+
+.wrapper{
+  max-width:480px;
+  width:100%;
+  margin:0 auto;
+}
+
+.buttons-wrapper{
+  margin-bottom:24px;
+  margin-bottom:2rem;
+}
+
+.button{
+  display:inline-block;
+  vertical-align:top;
+  font-size:13.2px;
+  font-size:1.1rem;
+  line-height:1.25em;
+  margin-right:.5em;
+  padding:.75em 1.25em;
+  text-decoration:none;
+  border-radius:3px;
+  background-color:#3498DB;
+  color:#f0f0f0;
+  box-shadow:0 4px 0 rgb(42, 122, 175);
+  -webkit-transform:translate3d(0, 0, 0);
+          transform:translate3d(0, 0, 0);
+  -webkit-transition:opacity 150ms ease;
+  transition:opacity 150ms ease
+}
+
+.button:hover{
+
+  opacity:.9;
+}
+
+.button:active{
+
+  -webkit-transform:translate3d(0, 2px, 0);
+
+          transform:translate3d(0, 2px, 0);
+
+  box-shadow:0 2px 0 rgb(42, 122, 175);
+}
+
+.button span{
+
+  display:block;
+
+  font-weight:700;
+
+  font-size:1.25em;
+}
+
+.button.secondary{
+
+  box-shadow:inset 0 0 0 2px rgb(168, 168, 168);
+
+  background-color:transparent;
+
+  color:#3498DB;
+}
+
+.install-cli-wrapper{
+  color:rgb(96, 96, 96);
+  background-color:rgb(245, 245, 245);
+  border:2px solid rgb(215, 215, 215);
+  border-radius:3px
+}
+
+.install-cli-wrapper pre{
+
+  margin:0;
+
+  color:inherit;
+
+  background-color:inherit;
+
+  border-radius:0;
+}
+
+.install-cli-wrapper pre:first-of-type{
+
+  border-bottom:1px solid rgb(215, 215, 215);
+}
+
+.colors{
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+
+  width:100%;
+  height:20px;
+  margin:0 0 12px;
+  margin:0 0 1rem;
+  overflow:hidden;
+  border-radius:0 0 3px 3px
+}
+
+.colors > .color{
+
+  -webkit-box-flex:1;
+
+      -ms-flex:1 1 auto;
+
+          flex:1 1 auto;
+
+  font-size:11px;
+
+  line-height:20px;
+
+  text-align:center;
+
+  font-weight:bold;
+}
+
+.colors > .orig{
+
+  box-shadow:inset 0 0 0 1px rgba(96, 96, 96, 0.5),
+      inset 0 0 0 3px rgba(240, 240, 240, 0.5);
+}
+
+.license p{
+  margin-bottom:1em;
+}
+
+.center{
+  text-align:center;
+}
+
+@media all and (max-width: 500px){
+  :root{font-size:10px}
+}
+
+.github-corner{
+  position:fixed;
+  top:0;
+  right:0
+}
+
+.github-corner:hover .octo-arm{
+
+  -webkit-animation:octocat-wave 560ms ease-in-out;
+
+          animation:octocat-wave 560ms ease-in-out;
+}
+
+.github-corner > svg{
+
+  display:block;
+
+  border:0;
+
+  fill:rgb(77, 77, 77);
+
+  color:#f0f0f0;
+}
+
+@-webkit-keyframes octocat-wave{
+  0%,100%{-webkit-transform:rotate(0);transform:rotate(0)}
+  20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}
+  40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}
+}
+
+@keyframes octocat-wave{
+  0%,100%{-webkit-transform:rotate(0);transform:rotate(0)}
+  20%,60%{-webkit-transform:rotate(-25deg);transform:rotate(-25deg)}
+  40%,80%{-webkit-transform:rotate(10deg);transform:rotate(10deg)}
+}
+
+@media (max-width:500px){
+  .github-corner:hover .octo-arm{-webkit-animation:none;animation:none}
+  .github-corner .octo-arm{-webkit-animation:octocat-wave 560ms ease-in-out;animation:octocat-wave 560ms ease-in-out}
+}

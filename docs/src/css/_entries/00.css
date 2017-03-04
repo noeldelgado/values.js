@@ -1,0 +1,227 @@
+:root {
+  --bg-color: #f0f0f0;
+  --text-color: color(var(--bg-color) shade(60));
+  --link-color: #3498DB;
+  --code-bg-color: var(--text-color);
+  --code-text-color: var(--bg-color);
+
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.618;
+}
+
+:any-link {
+  color: var(--link-color);
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.15em;
+  padding: 0 0 .5em;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 0 0 1em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  padding: 0 0 1em;
+}
+
+section {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 3px solid color(var(--bg-color) shade(3));
+
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
+
+  &:last-child {
+    border-bottom-width: 0;
+  }
+
+  & pre:last-of-type {
+    margin: 0;
+  }
+}
+
+article pre {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+pre {
+  font-size: 1.1rem;
+  padding: 15px 20px;
+  margin: 0 0 1.5rem;
+  overflow: auto;
+
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  border-radius: 3px;
+}
+
+.main-content {
+  padding: 0 15px;
+}
+
+.wrapper {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.buttons-wrapper {
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.1rem;
+  line-height: 1.25em;
+  margin-right: .5em;
+  padding: .75em 1.25em;
+  text-decoration: none;
+  border-radius: 3px;
+  background-color: var(--link-color);
+  color: var(--bg-color);
+  box-shadow: 0 4px 0 color(var(--link-color) shade(20));
+  transform: translate3d(0, 0, 0);
+  transition: opacity 150ms ease;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:active {
+    transform: translate3d(0, 2px, 0);
+    box-shadow: 0 2px 0 color(var(--link-color) shade(20));
+  }
+
+  & span {
+    display: block;
+    font-weight: 700;
+    font-size: 1.25em;
+  }
+
+  &.secondary {
+    box-shadow: inset 0 0 0 2px color(var(--bg-color) shade(30));
+    background-color: transparent;
+    color: var(--link-color);
+  }
+}
+
+.install-cli-wrapper {
+  color: var(--code-bg-color);
+  background-color: color(var(--bg-color) tint(30));
+  border: 2px solid color(var(--text-color) tint(75));
+  border-radius: 3px;
+
+  & pre {
+    margin: 0;
+    color: inherit;
+    background-color: inherit;
+    border-radius: 0;
+
+    &:first-of-type {
+      border-bottom: 1px solid color(var(--text-color) tint(75));
+    }
+  }
+}
+
+.colors {
+  display: flex;
+
+  width: 100%;
+  height: 20px;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  border-radius: 0 0 3px 3px;
+
+  & > .color {
+    flex: 1 1 auto;
+    font-size: 11px;
+    line-height: 20px;
+
+    text-align: center;
+    font-weight: bold;
+
+    /* &:first-of-type { */
+    /*   border-radius: 3px 0 0 3px; */
+    /* } */
+
+    /* &:last-of-type { */
+    /*   border-radius: 0 3px 3px 0; */
+    /* } */
+
+    /* &:first-of-type:last-of-type { */
+    /*   border-radius: 3px; */
+    /* } */
+  }
+
+  & > .orig {
+    box-shadow:
+      inset 0 0 0 1px color(var(--text-color) a(50%)),
+      inset 0 0 0 3px color(var(--bg-color) a(50%));
+  }
+}
+
+.license p {
+  margin-bottom: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  :root {font-size: 10px}
+}
+
+/* github corner */
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  &:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+
+  & > svg {
+    display: block;
+    border: 0;
+    fill: color(var(--text-color) shade(20));
+    color: var(--bg-color);
+  }
+}
+
+@keyframes octocat-wave {
+  0%,100%{transform:rotate(0)}
+  20%,60%{transform:rotate(-25deg)}
+  40%,80%{transform:rotate(10deg)}
+}
+
+@media (max-width:500px){
+  .github-corner:hover .octo-arm{animation:none}
+  .github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}
+}
