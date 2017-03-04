@@ -32,7 +32,6 @@
       frag.appendChild(e);
     }
 
-    // section.querySelector('.total').textContent = values.length;
     container.appendChild( frag );
   };
 
