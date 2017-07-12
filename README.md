@@ -34,16 +34,16 @@ console.log(color.hslString())      // => "hsl(204, 100%, 50%)"
 console.log(color.getBrightness())  // => 53
 
 color.tints().forEach(function(tint) {
-	console.log(tint);     // => [Values instance]
+  console.log(tint);     // => [Values instance]
 });
 
 color.shades().forEach(function(shade) {
-	console.log(shade);    // => [Values instance]
+  console.log(shade);    // => [Values instance]
 });
 
 // tints, original color and shades
 color.all().forEach(function(color) {
-    console.log(color);   // => [Value instance]
+  console.log(color);   // => [Value instance]
 });
 ```
 
@@ -157,7 +157,7 @@ Values.Utils.isHSl('hsl(361,10%,10%)')     => false
 ### Dev
 ```sh
 npm install     # install dependencies
-npm test		# run the tests
+npm test	# run the tests
 npm run dev     # watch for changes and run tests
 ```
 
