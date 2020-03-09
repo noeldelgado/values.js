@@ -27,6 +27,6 @@
   },
   "homepage": "http://noeldelgado.github.io/values.js/",
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "^7.1.0"
   }
 }
