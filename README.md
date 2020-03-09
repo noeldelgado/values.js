@@ -1,24 +1,34 @@
-## values.js
+# values.js
 [![npm-image](https://img.shields.io/npm/v/values.js.svg)](https://www.npmjs.com/package/values.js)
 ![bower-image](https://img.shields.io/bower/v/values.js.svg)
+[![Known Vulnerabilities](https://snyk.io/test/npm/values.js/1.0.3/badge.svg)](https://snyk.io/test/npm/values.js/1.0.3)
+![license-image](https://img.shields.io/npm/l/values.js.svg)
 
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
 Shades are dark values that are made by mixing a color with black, which reduces lightness.
 
+## Demo
 https://noeldelgado.github.io/values.js/
 
-### Installation
+## Dependencies
+None
+
+## Installation
 
 **NPM**
 
-`npm install values.js`
+```sh
+npm install values.js --save
+```
 
 **Bower**
 
-`bower install values.js`
+```sh
+bower install values.js --save
+```
 
-### Usage Example
+## Usage Example
 ```js
 var Values = require('values.js')
   , color = new Values('#0099ff');
@@ -47,9 +57,9 @@ color.all().forEach(function(color) {
 });
 ```
 
-### Instance Methods
+## Instance Methods
 
-#### setColor
+### setColor
 ```js
 /* Sets the base color for which all operations are based. Updates the instance's properties.
  * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
@@ -61,7 +71,7 @@ color.setColor('rgb(255,255,0)');
 color.setColor('hsl(60,100%,50%)');
 ```
 
-#### tint
+### tint
 ```js
 /* Lightens the instance by mixing it with white as specified by @percentage.
  * @param {number} [percentage=50]
@@ -73,7 +83,7 @@ color.tint(10);
 color.tint(24);
 ```
 
-#### shade
+### shade
 ```js
 /* Darkens the instance color by mixing it with black as specified by @percentage.
  * @param {number} [percentage=50]
@@ -85,7 +95,7 @@ color.shade(9);
 color.shade(31);
 ```
 
-#### tints
+### tints
 ````js
 /* Generates the tints of the instance color as specified by @percentage.
  * @param {number} [percentage=10]
@@ -93,11 +103,11 @@ color.shade(31);
  */
 
 color.tints(20).forEach(function (tint) {
-  console.log(tint)
+    console.log(tint)
 })
 ````
 
-#### shades
+### shades
 ````js
 /* Generates the shades of the instance color as specified by @percentage.
  * @param {number} [percentage=10]
@@ -105,11 +115,11 @@ color.tints(20).forEach(function (tint) {
 */
 
 color.shades(20).forEach(function (shade) {
-  console.log(shade)
+    console.log(shade)
 })
 ````
 
-#### all
+### all
 ```js
 /* Generates the tints and shades of the instance color as specified by @percentage.
  * @param {number} [percentage=10]
@@ -117,11 +127,11 @@ color.shades(20).forEach(function (shade) {
  */
 
 color.all().forEach(function (color) {
-  console.log(color)
+    console.log(color)
 })
 ```
 
-#### getBrightness
+### getBrightness
 ````js
 /* Calculates the brightness of the instance base-color.
  * @return {number} the base-color brightness.
@@ -130,9 +140,9 @@ color.getBrightness();
 ````
 
 
-### Static Methods (Utils)
+## Static Methods (Utils)
 
-#### isHex(color)
+### isHex(color)
 ```js
 Values.Utils.isHEX('09c')     => true
 Values.Utils.isHEX('#09c')    => true
@@ -140,26 +150,28 @@ Values.Utils.isHEX('#0099cc') => true
 Values.Utils.isHEX('09cc')    => false
 ```
 
-#### isRGB(color)
+### isRGB(color)
 ```js
 Values.Utils.isRGB('rgb(0,0,0)')    => true
 Values.Utils.isRGB('rgba(0,0,0,.0)') => true
 Values.Utils.isRGB('0,0,0')         => false
 ```
 
-#### isHSL(color)
+### isHSL(color)
 ```js
 Values.Utils.isHSL('hsl(198,58%,1%)')      => true
 Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
 Values.Utils.isHSl('hsl(361,10%,10%)')     => false
 ```
 
-### Dev
+## Dev
 ```sh
-npm install     # install dependencies
-npm test	# run the tests
-npm run dev     # watch for changes and run tests
+npm install 	# install dependencies
+npm test		# run the tests
+npm run dev 	# watch for changes and run tests
 ```
+## Related
+- [Shadowlord](https://github.com/noeldelgado/shadowlord) - Tints and shades generator web tool
 
-### License
+## License
 MIT © [Noel Delgado](http://pixelia.me/)
