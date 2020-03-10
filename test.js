@@ -49,6 +49,15 @@ describe('values.methods', function () {
       assert.equal(color.tint(10).rgbString(), 'rgb(25, 255, 255)');
       assert.equal(color.tint(10).hslString(), 'hsl(180, 100%, 55%)');
     });
+
+    it('should include tint percentage', () => {
+      assert.equal(color.tint(10).percentage, 10);
+      assert.equal(color.tint(24).percentage, 24);
+      assert.equal(color.tint(47).percentage, 47);
+      assert.equal(color.tint(52).percentage, 52);
+      assert.equal(color.tint(89).percentage, 89);
+      assert.equal(color.tint(100).percentage, 100);
+    });
   });
 
   describe('values.method.shade', function () {
@@ -69,6 +78,15 @@ describe('values.methods', function () {
       assert.equal(color.shade(10).rgbString(), 'rgb(0, 230, 230)');
       assert.equal(color.shade(10).hslString(), 'hsl(180, 100%, 45%)');
     });
+
+    it('should include shade percentage', () => {
+      assert.equal(color.shade(10).percentage, 10);
+      assert.equal(color.shade(24).percentage, 24);
+      assert.equal(color.shade(47).percentage, 47);
+      assert.equal(color.shade(52).percentage, 52);
+      assert.equal(color.shade(89).percentage, 89);
+      assert.equal(color.shade(100).percentage, 100);
+    });
   });
 
   describe('values.method.tints', function () {
@@ -81,6 +99,16 @@ describe('values.methods', function () {
       assert.equal(tints[6].hex, 'b3ffff');
       assert.equal(tints[8].hex, 'e6ffff');
       assert.equal(tints[9].hex, 'ffffff');
+    });
+
+    it('should include tints percentage', () => {
+      var tints = color.tints();
+      assert.equal(tints[0].percentage, 10);
+      assert.equal(tints[2].percentage, 30);
+      assert.equal(tints[4].percentage, 50);
+      assert.equal(tints[6].percentage, 70);
+      assert.equal(tints[8].percentage, 90);
+      assert.equal(tints[9].percentage, 100);
     });
   });
 
@@ -95,6 +123,16 @@ describe('values.methods', function () {
       assert.equal(shades[8].hex, '001919');
       assert.equal(shades[9].hex, '000000');
     });
+
+    it('should include shades percentage', () => {
+      var shades = color.shades();
+      assert.equal(shades[0].percentage, 10);
+      assert.equal(shades[2].percentage, 30);
+      assert.equal(shades[4].percentage, 50);
+      assert.equal(shades[6].percentage, 70);
+      assert.equal(shades[8].percentage, 90);
+      assert.equal(shades[9].percentage, 100);
+    });
   });
 
   describe('values.method.all', function () {
@@ -104,6 +142,38 @@ describe('values.methods', function () {
       assert.equal(all[0].hex, 'ffffff');
       assert.equal(all[10].hex, color.hex);
       assert.equal(all[20].hex, '000000');
+    });
+
+    it('should include isTint boolean for tints and not include isShade or isBaseColor', () => {
+      var all = color.all();
+      var start = 0;
+      var end = Math.round(all.length / 2 - 1);
+      assert.equal(all.length, 21);
+      for (var i = start; i < end; i++) {
+        assert.equal(all[i].isTint, true);
+        assert.equal(all[i].isShade, undefined);
+        assert.equal(all[i].isBaseColor, undefined);
+      }
+    });
+
+    it('should include isShade boolean for shades and not include isTint or isBaseColor', () => {
+      var all = color.all();
+      var start = Math.round(all.length / 2);
+      var end = all.length;
+      assert.equal(all.length, 21);
+      for (var i = start; i < end; i++) {
+        assert.equal(all[i].isShade, true);
+        assert.equal(all[i].isTint, undefined);
+        assert.equal(all[i].isBaseColor, undefined);
+      }
+    });
+
+    it('should include isBaseColor boolean for input color and not include isTint or isShade', () => {
+      var all = color.all();
+      var index = Math.round(all.length / 2 - 1);
+      assert.equal(all[index].isBaseColor, true);
+      assert.equal(all[index].isTint, undefined);
+      assert.equal(all[index].isShade, undefined);
     });
   });
 
