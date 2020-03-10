@@ -1,6 +1,6 @@
 {
   "name": "values.js",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Get the tints and shades of a color",
   "license": "MIT",
   "main": "index.js",
