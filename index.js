@@ -123,7 +123,10 @@
       var g = Math.round(color1.rgb.g * w1 + color2.rgb.g * w2);
       var b = Math.round(color1.rgb.b * w1 + color2.rgb.b * w2);
 
-      return new Values(Utils.RGBtoHEX(r, g, b));
+      var value = new Values(Utils.RGBtoHEX(r, g, b));
+      value.percentage = percentage;
+
+      return value;
     }
   };
 
@@ -182,10 +185,14 @@
    * @return {Array<Values>}
    */
   Values.prototype.tints = function tint (percentage) {
-    var i = percentage = (percentage || 10), tints = [];
+    var i = percentage = (percentage || 10)
+      , tints = []
+      , tint;
 
     while (i <= 100) {
-      tints.push(this.tint(i));
+      tint = this.tint(i);
+      tint.isTint = true;
+      tints.push(tint);
       i += percentage;
     }
 
@@ -201,7 +208,9 @@
     var i = percentage = (percentage || 10), shades = [];
 
     while (i <= 100) {
-      shades.push(this.shade(i));
+      shade = this.shade(i);
+      shade.isShade = true;
+      shades.push(shade);
       i += percentage;
     }
 
@@ -217,7 +226,7 @@
     var tints = this.tints(percentage).reverse()
       , shades = this.shades(percentage);
 
-    tints.push(this);
+    tints.push(Object.assign(this, { isBaseColor: true }));
     return tints.concat(shades);
   };
 
