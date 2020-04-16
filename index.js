@@ -1,6 +1,6 @@
 /**
  * values.js - Get the tints and shades of a color
- * @version v1.1.0
+ * @version v1.1.1
  * @link http://noeldelgado.github.io/values.js/
  * @license MIT
  */
@@ -205,7 +205,9 @@
    * @return {Array<Values>}
    */
   Values.prototype.shades = function tint (percentage) {
-    var i = percentage = (percentage || 10), shades = [];
+    var i = percentage = (percentage || 10)
+      , shades = []
+      , shade;
 
     while (i <= 100) {
       shade = this.shade(i);
