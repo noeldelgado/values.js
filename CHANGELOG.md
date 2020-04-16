@@ -2,15 +2,19 @@
 
 ## [Unreleased]
 
+## [1.1.1] - [#6](../../pull/6) - 2020-04-16
+### Fixed
+- shade is not defined
+
 ## [1.1.0] - [#5](../../pull/5) - 2020-03-10
-## Added
+### Added
 - ✨ new properties to the Array result of `vallues.all()` [`5f204a2`](https://github.com/noeldelgado/values.js/commit/5f204a2b4757bf0e2e77910ae50f44bbb19af56f)
   - `isTint: true` for tints
   - `isShade: true` for shades
   - `isBaseColor: true` for the original input color
 - Added Changelog (this)
 
-## Changed
+### Changed
 - updated README [`f226453`](https://github.com/noeldelgado/values.js/commit/5f204a2b4757bf0e2e77910ae50f44bbb19af56f)
   - added params signature for methods
   - added `hexString`, `rgbString` and `hslString` missing methods
@@ -80,7 +84,8 @@
 ## [0.1.1] - 2014-07-02
 - initial release
 
-[Unreleased]: https://github.com/noeldelgado/values.js/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/noeldelgado/values.js/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/noeldelgado/values.js/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/noeldelgado/values.js/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/noeldelgado/values.js/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/noeldelgado/values.js/compare/v1.0.1...v1.0.2
