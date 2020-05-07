@@ -4,6 +4,14 @@ var assert = require('assert')
   , color = new Values('0099cc');
 
 describe('new instance setup', function () {
+  it('no color', function () {
+    var color = new Values();
+    assert.equal(color instanceof Values, true);
+    assert.equal(color.hex, '');
+    assert.deepEqual(color.rgb, {});
+    assert.deepEqual(color.hsl, {});
+  });
+
   it('should instantiate correctly', function () {
     assert.equal(color instanceof Values, true);
     assert.equal(color.hex, '0099cc');
