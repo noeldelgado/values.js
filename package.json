@@ -27,6 +27,7 @@
   },
   "homepage": "http://noeldelgado.github.io/values.js/",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@rollup/plugin-babel": "^5.0.0",
     "eslint": "^7.0.0",
     "mocha": "^7.1.0",
