@@ -28,6 +28,7 @@
   "homepage": "http://noeldelgado.github.io/values.js/",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^11.1.0",
     "eslint": "^7.0.0",
     "eslint-config-rollup": "^0.1.0",
     "mocha": "^7.1.0",
