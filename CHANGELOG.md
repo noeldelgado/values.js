@@ -4,6 +4,12 @@
 
 (feat/v2)
 ### Added
+- support for
+  - #RRGGBBAA
+  - RGB CSS Color Module Level 4
+  - HSL CSS Color Module Level 4 (number, deg, rad & turn)
+  - color keyword
+  - transparent
 - rollup bundler
 - .editorconfig
 - eslint
