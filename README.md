@@ -189,38 +189,6 @@ color.getBrightness();
 color.rgbString();
 ```
 
-### hslString()
-```js
-/* Returns the instance color in hsl string form.
- * @returns {string} e.g. 'hsl(0, 0%, 0%)'
- */
-color.hslString();
-```
-
-## Static Methods (Utils)
-
-### isHex(String:color)
-```js
-Values.Utils.isHEX('09c')     => true
-Values.Utils.isHEX('#09c')    => true
-Values.Utils.isHEX('#0099cc') => true
-Values.Utils.isHEX('09cc')    => false
-```
-
-### isRGB(String:color)
-```js
-Values.Utils.isRGB('rgb(0,0,0)')    => true
-Values.Utils.isRGB('rgba(0,0,0,.0)') => true
-Values.Utils.isRGB('0,0,0')         => false
-```
-
-### isHSL(String:color)
-```js
-Values.Utils.isHSL('hsl(198,58%,1%)')      => true
-Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
-Values.Utils.isHSl('hsl(361,10%,10%)')     => false
-```
-
 ## Dev
 ```sh
 npm install 	# install dev-dependencies
