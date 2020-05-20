@@ -3,6 +3,9 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -14,9 +17,6 @@
     "test:watch": "npm run test -- -w",
     "dev": "npm run test:watch"
   },
-  "files": [
-    "index.js"
-  ],
   "keywords": [
     "tints",
     "shades",
