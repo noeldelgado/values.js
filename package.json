@@ -35,7 +35,9 @@
   "bugs": {
     "url": "https://github.com/noeldelgado/values.js/issues"
   },
-  "homepage": "http://noeldelgado.github.io/values.js/",
+  "dependencies": {
+    "pure-color": "^1.3.0"
+  },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^11.1.0",
