@@ -15,8 +15,20 @@ Shades are dark values that are made by mixing a color with black, which reduces
 ## Demo
 https://noeldelgado.github.io/values.js/
 
-## Dependencies
-None
+### Supports
+* \<color value\>
+	* Hexadecimal RGB value: #RGB #RRGGBB
+	* #RGBA #RRGGBBAA (4 and 8-digit hexadecimal RGBA notation)
+	* RGB/A - CSS Color Module Level 3 and 4 (number, percentage)
+	* HSL/A - CSS Color Module Level 3 and 4 (number, deg, rad, turn)
+* \<color keyword\>
+	* One of the [pre-defined color keywords](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+* transparent
+	* Shorthand for transparent black, rgba(0,0,0,0).
+
+### Does not support
+* currentColor
+* inherit
 
 ## Installation
 
