@@ -12,9 +12,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "mocha test/* -w",
-    "test:watch": "npm run test -- -w",
-    "prepublishOnly": "npm run build && npm run test"
+    "test": "mocha test/*",
+    "test:watch": "npm test -- -w",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "tints",
