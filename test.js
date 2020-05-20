@@ -1,6 +1,6 @@
 /* globals describe, it */
 var assert = require('assert')
-  , Values = require('./')
+  , Values = require('./index.js')
   , color = new Values('0099cc');
 
 describe('new instance setup', function () {
