@@ -9,11 +9,6 @@
     "dist"
   ],
   "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/noeldelgado/values.js.git"
-  },
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -37,6 +32,11 @@
     "mix"
   ],
   "author": "Noel Delgado <pixelia.me@gmail.com> (http://pixelia.me)",
+  "homepage": "http://noeldelgado.github.io/values.js/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noeldelgado/values.js.git"
+  },
   "bugs": {
     "url": "https://github.com/noeldelgado/values.js/issues"
   },
