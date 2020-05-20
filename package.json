@@ -15,9 +15,11 @@
     "url": "https://github.com/noeldelgado/values.js.git"
   },
   "scripts": {
-    "test": "mocha",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "mocha test/* -w",
     "test:watch": "npm run test -- -w",
-    "dev": "npm run test:watch"
+    "prepublishOnly": "npm run build && npm run test"
   },
   "keywords": [
     "tints",
