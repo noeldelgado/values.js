@@ -38,12 +38,6 @@ https://noeldelgado.github.io/values.js/
 npm install values.js --save
 ```
 
-**Bower**
-
-```sh
-bower install values.js --save
-```
-
 ## Usage Example
 ```js
 var Values = require('values.js')
