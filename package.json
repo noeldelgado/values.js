@@ -36,6 +36,7 @@
     "url": "https://github.com/noeldelgado/values.js/issues"
   },
   "dependencies": {
+    "mix-css-color": "^0.1.1",
     "pure-color": "^1.3.0"
   },
   "devDependencies": {
