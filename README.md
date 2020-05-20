@@ -1,6 +1,5 @@
 # values.js
 [![npm-image](https://img.shields.io/npm/v/values.js.svg)](https://www.npmjs.com/package/values.js)
-![bower-image](https://img.shields.io/bower/v/values.js.svg)
 [![Known Vulnerabilities](https://snyk.io/test/npm/values.js/1.1.0/badge.svg)](https://snyk.io/test/npm/values.js/1.1.0)
 ![license-image](https://img.shields.io/npm/l/values.js.svg)
 
