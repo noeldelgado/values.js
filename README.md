@@ -38,6 +38,14 @@ https://noeldelgado.github.io/values.js/
 npm install values.js --save
 ```
 
+Or as a `<script>` tag from a CDN as `Values`:
+
+**Unpkg CDN**
+
+```html
+<script src="https://unpkg.com/values.js"></script>
+```
+
 ## Usage Example
 ```js
 var Values = require('values.js')
