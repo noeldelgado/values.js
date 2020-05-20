@@ -197,7 +197,9 @@ npm run dev 	# watch for changes and run tests
 ```
 
 ## Related
-- [Shadowlord](https://github.com/noeldelgado/shadowlord) - Tints and shades generator tool
+- [Shadowlord](https://github.com/noeldelgado/shadowlord) - Online tints and shades generator tool
+- [mix-css-color](https://github.com/noeldelgado/mix-css-color) - Mix two CSS colors together in variable proportion. Opacity is included in the calculations.
+- [parse-css-color](https://github.com/noeldelgado/parse-css-color) - Parse a CSS color string
 
 ## License
 MIT © [Noel Delgado](http://pixelia.me/)
