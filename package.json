@@ -19,7 +19,17 @@
   "keywords": [
     "tints",
     "shades",
-    "color"
+    "tint",
+    "shade",
+    "css",
+    "color",
+    "hex",
+    "rgb",
+    "rgba",
+    "hsl",
+    "hsla",
+    "alpha",
+    "mix"
   ],
   "author": "Noel Delgado <pixelia.me@gmail.com> (http://pixelia.me)",
   "bugs": {
