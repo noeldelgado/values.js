@@ -1,5 +1,6 @@
 {
   "name": "values.js",
+  "description": "Get tints and shades of a CSS color",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
