@@ -2,6 +2,44 @@
 
 ## [Unreleased]
 
+(feat/v2)
+### Added
+- rollup bundler
+- .editorconfig
+- eslint
+  - .eslintrc
+- `instance.alpha` property to hold a value within `0` and `1`
+
+### Changed
+- refactor code (es6)
+  - move validations to parse-css-color
+  - move mix color functionality to mix-css-color
+  - add pure-color dependency for color format convertion
+- add more tests
+- `throw` error if input is not a CSS string recognized by `parse-css-color`
+- `instance.rgb` property now returns an array in the form of `[r, g, b]`
+- `instance.hex` is now a getter (backward compatible access)
+  - if alpha is less than `1` it returns 8 digits now `#RRGGBBAA` otherwise 6 `#RRGGBB`
+- `isTint`, `isShade` and `isBaseColor` properties were moved to a single field `type`
+  - for tints `instance.type="tint"`
+  - shades => `type="shade"`
+  - base color => `type="base"`
+- `percentage` property is now called `weight` and it is included on every single instance instead of just for isntances of tints and shades
+
+### Removed
+- bower distribution
+- properties
+  - hsl
+  - isTint, isShade, isBaseColor
+- methods
+  - hslString
+- static utils functions
+  - input validation (moved validations to parse-css-color and enhance it with more features)
+    - Values.Utils.isHex
+    - isRGB
+    - isHSL
+  - mix (moved to mix-css-color)
+
 ## [1.1.1] - [#6](../../pull/6) - 2020-04-16
 ### Fixed
 - shade is not defined
