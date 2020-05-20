@@ -46,6 +46,12 @@ Or as a `<script>` tag from a CDN as `Values`:
 <script src="https://unpkg.com/values.js"></script>
 ```
 
+**jsDelivr CDN**
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/values.js"></script>
+```
+
 ## Usage Example
 ```js
 var Values = require('values.js')
