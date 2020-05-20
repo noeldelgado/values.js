@@ -1,7 +1,9 @@
 # values.js
 [![npm-image](https://img.shields.io/npm/v/values.js.svg)](https://www.npmjs.com/package/values.js)
-[![Known Vulnerabilities](https://snyk.io/test/npm/values.js/1.1.0/badge.svg)](https://snyk.io/test/npm/values.js/1.1.0)
 ![license-image](https://img.shields.io/npm/l/values.js.svg)
+[![Known Vulnerabilities](https://snyk.io/test/npm/values.js/badge.svg)](https://snyk.io/test/npm/values.js)
+[![Dependencies](https://img.shields.io/david/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js)
+[![devDependencies](https://img.shields.io/david/dev/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js?type=dev)
 
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
