@@ -7,10 +7,10 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/context:javascript)
 
+Get tints and shades of a CSS color
 
-The lightness or darkness of a color is called its value.
-Tints are light values that are made by mixing a color with white, which increases lightness.
-Shades are dark values that are made by mixing a color with black, which reduces lightness.
+> _The lightness or darkness of a color is called its value.
+Tints are light values that are made by mixing a color with white, which increases lightness. Shades are dark values that are made by mixing a color with black, which reduces lightness._
 
 ## Demo
 https://noeldelgado.github.io/values.js/
