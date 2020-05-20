@@ -4,6 +4,9 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/values.js/badge.svg)](https://snyk.io/test/npm/values.js)
 [![Dependencies](https://img.shields.io/david/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js)
 [![devDependencies](https://img.shields.io/david/dev/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js?type=dev)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/context:javascript)
+
 
 The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness.
