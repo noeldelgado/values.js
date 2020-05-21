@@ -1,0 +1,11 @@
+name: Lighthouse
+on: push
+jobs:
+  static-dist-dir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Lighthouse against a static dist dir
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          configPath: './lighthouserc.json'
