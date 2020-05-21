@@ -76,7 +76,7 @@ color.shades().forEach((shade) => {
 // tints, original color and shades
 color.all().forEach((value) => {
   log(value); //> [Value instance]
-  // do stuff with value, 
+  // do stuff with value,
   // e.g.: if value.type === 'base' then addClass etc
   // if value.getBrightness() > 50 then set color white
 });
@@ -101,7 +101,7 @@ color.all().forEach((value) => {
   ƒ shade(weight = 50)
   ƒ shades(weight = 10)
   ƒ tint(weight = 50)
-  ƒ tints(weight = 10) 
+  ƒ tints(weight = 10)
   ƒ all(weight = 10)
   ƒ hexString()
   ƒ rgbaString()
