@@ -3,39 +3,46 @@
   "version": "0.0.1",
   "scripts": {
     "build": "tarima -fdV",
-    "watch": "tarima -wsdV",
-    "start": "npm run watch"
+    "start": "npm run watch",
+    "watch": "tarima watch src"
   },
   "author": "Noel Delgado <auhcsei@gmail.com> (http://pixelia.me)",
   "license": "MIT",
-  "__devDependencies__": [
-    "buble",
-    "postcss",
-    "postcss-cssnext",
-    "postcss-discard-comments",
-    "postcss-import",
-    "rollup",
-    "rollup-plugin-buble",
-    "rollup-plugin-commonjs",
-    "rollup-plugin-node-resolve",
-    "tarima-cli",
-    "tarima-lr"
-  ],
+  "devDependencies": {
+    "postcss": "^7.0.30",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "rollup": "^1.31.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "tarima": "^4.6.3"
+  },
   "tarima": {
     "bundle": [
       "**/_entries/**"
     ],
-    "public": "./",
-    "src": "src/**/*",
-    "dest": "./build",
-    "watch": "**.html",
     "filter": [
       "**/_entries/**"
+    ],
+    "public": "./",
+    "from": [
+      "src"
+    ],
+    "output": "build",
+    "watching": [
+      "index.html"
+    ],
+    "ignoreFiles": [
+      ".gitignore"
     ],
     "devPlugins": [
       "tarima-lr"
     ],
     "rename": "**/_entries/**:{filepath/1/_entries}/{filename}.{extname}",
+    "_rename": [
+      "**/_entries/**:{basedir/1/bundles/}/{fname}"
+    ],
     "bundleOptions": {
       "extensions": {
         "js": "es6",
@@ -49,18 +56,27 @@
           "rollup-plugin-node-resolve"
         ],
         "rollup-plugin-node-resolve": {
-          "module": true,
-          "jsnext": true,
-          "main": true,
-          "browser": true
+          "mainFields": [
+            "module",
+            "jsnext:main",
+            "browser"
+          ]
         }
       },
       "postcss": {
         "plugins": [
           "postcss-import",
-          "postcss-cssnext",
-          "postcss-discard-comments"
-        ]
+          "postcss-cssnext"
+        ],
+        "postcss-cssnext": {
+          "browsers": [
+            "last 1 version"
+          ],
+          "features": {
+            "customProperties": false,
+            "calc": false
+          }
+        }
       }
     }
   }
