@@ -1,12 +1,13 @@
 # values.js
 
-[![npm-image](https://img.shields.io/npm/v/values.js.svg)](https://www.npmjs.com/package/values.js)
-![license-image](https://img.shields.io/npm/l/values.js.svg)
-[![Known Vulnerabilities](https://snyk.io/test/npm/values.js/badge.svg)](https://snyk.io/test/npm/values.js)
-[![Dependencies](https://img.shields.io/david/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js)
-[![devDependencies](https://img.shields.io/david/dev/noeldelgado/values.js.svg)](https://david-dm.org/noeldelgado/values.js?type=dev)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/noeldelgado/values.js/context:javascript)
+[![NPM Version][npm-image]][npm-url]
+[![License][license-image]][license-url]
+[![Minzipped size][bundlephobia-image]][bundlephobic-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![Dependencies][david-image]][david-url]
+[![Dev Dependencies][david-dev-image]][david-dev-url]
+[![Total alerts][lgtm-image]][lgtm-url]
+[![Language grade: JavaScript][lgtm-grade-image]][lgtm-grade-url]
 
 Get tints and shades of a CSS color
 
@@ -26,10 +27,6 @@ https://noeldelgado.github.io/values.js/
 	* One of the [pre-defined color keywords](https://www.w3.org/wiki/CSS/Properties/color/keywords).
 * transparent
 	* Shorthand for transparent black, rgba(0,0,0,0).
-
-### Does not support
-* currentColor
-* inherit
 
 ## Installation
 
@@ -212,9 +209,26 @@ npm run dev 	# watch for changes and run tests
 ```
 
 ## Related
-- [Shadowlord](https://github.com/noeldelgado/shadowlord) - Online tints and shades generator tool
+- [shadowlord](https://github.com/noeldelgado/shadowlord) - Tints and shades generator tool
 - [mix-css-color](https://github.com/noeldelgado/mix-css-color) - Mix two CSS colors together in variable proportion. Opacity is included in the calculations.
 - [parse-css-color](https://github.com/noeldelgado/parse-css-color) - Parse a CSS color string
 
 ## License
-MIT © [Noel Delgado](http://pixelia.me/)
+MIT © [Noel Delgado](https://pixelia.me/)
+
+[npm-image]: https://img.shields.io/npm/v/values.js.svg
+[npm-url]: https://www.npmjs.com/package/values.js
+[license-image]: https://img.shields.io/npm/l/values.js.svg
+[license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
+[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js
+[bundlephobic-url]: https://bundlephobia.com/result?p=values.js
+[snyk-image]: https://snyk.io/test/npm/values.js/badge.svg
+[snyk-url]: https://snyk.io/test/npm/values.js
+[david-image]: https://img.shields.io/david/noeldelgado/values.js.svg
+[david-url]: https://david-dm.org/noeldelgado/values.js
+[david-dev-image]: https://img.shields.io/david/dev/noeldelgado/values.js.svg
+[david-dev-url]: https://david-dm.org/noeldelgado/values.js?type=dev
+[lgtm-image]: https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
+[lgtm-url]: https://lgtm.com/projects/g/noeldelgado/values.js/alerts/
+[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
+[lgtm-grade-url]: https://lgtm.com/projects/g/noeldelgado/values.js/context:javascript
