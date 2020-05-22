@@ -4,11 +4,11 @@ $bundle: true
 ---
 */
 /* global document */
-import Prism from 'prismjs';
+// import Prism from 'prismjs';
 
 import Values from '../../../../';
 
-Prism.manual = true;
+// Prism.manual = true;
 
 const $ = (query, el = document) => el.querySelector(query);
 
@@ -49,11 +49,12 @@ const updateDemo = (section, type, weight) => {
   $('.demo-fn-info', section).innerHTML = `<b>${type}</b> ${weight}%`;
 
   if (details) {
-    details.innerHTML = Prism.highlight(
-      JSON.stringify(values, null, 2),
-      Prism.languages.javascript,
-      'javascript'
-    );
+    details.innerHTML = JSON.stringify(values, null, 2);
+    // details.innerHTML = Prism.highlight(
+    //   JSON.stringify(values, null, 2),
+    //   Prism.languages.javascript,
+    //   'javascript'
+    // );
   }
 };
 
