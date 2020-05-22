@@ -12,6 +12,12 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+::selection {
+  background-color: yellow;
+  color: var(--text-color);
+  text-shadow: none;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
