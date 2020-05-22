@@ -154,3 +154,8 @@ footer { padding: 0.5rem 0 1rem; }
 .center { text-align: center }
 .mb1 { margin-bottom: 1rem }
 .mb2 { margin-bottom: 2rem }
+
+.di::after { content: 'Click' }
+@media (hover: none) and (pointer: coarse) {
+    .di::after { content: 'Tap' }
+}
