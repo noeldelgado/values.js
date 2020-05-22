@@ -1,6 +1,8 @@
 # values.js
 
 [![NPM Version][npm-image]][npm-url]
+![][github-actions-nodejs-image]
+![][github-actions-lighthouse-image]
 [![License][license-image]][license-url]
 [![Minzipped size][bundlephobia-image]][bundlephobic-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
@@ -14,7 +16,6 @@ Get tints and shades of a CSS color
 > _The lightness or darkness of a color is called its value.
 Tints are light values that are made by mixing a color with white, which increases lightness. Shades are dark values that are made by mixing a color with black, which reduces lightness._
 
-## Demo
 https://noeldelgado.github.io/values.js/
 
 ### Supports
@@ -53,7 +54,7 @@ Or as a `<script>` tag from a CDN as `Values`:
 ## Usage Example
 ```js
 import Values from 'values.js'
-const color = new Values('#0099ff'), { log } = console
+const color = new Values('hsl(204deg 100% 50% / 1)'), { log } = console
 
 log(color.rgb)   //> [0, 153, 255]
 log(color.alpha) //> 1
@@ -218,6 +219,8 @@ MIT © [Noel Delgado](https://pixelia.me/)
 
 [npm-image]: https://img.shields.io/npm/v/values.js.svg?logo=npm&label=NPM
 [npm-url]: https://www.npmjs.com/package/values.js
+[github-actions-nodejs-image]: https://github.com/noeldelgado/values.js/workflows/Node.js%20CI/badge.svg?branch=feature/v2
+[github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg?branch=feature/v2
 [license-image]: https://img.shields.io/npm/l/values.js.svg
 [license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
 [bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js
