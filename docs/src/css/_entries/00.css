@@ -29,6 +29,8 @@ body {
   line-height: 1.618;
 }
 
+a { display: inline-flex }
+
 :any-link {
   color: var(--link-color);
 }
