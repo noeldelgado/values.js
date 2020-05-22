@@ -69,6 +69,10 @@ code {
 code[class*="language-"],
 pre[class*="language-"] {
   font-family: monospace;
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 details { cursor: pointer }
