@@ -37,12 +37,6 @@ a { display: inline-flex }
 
 sup {
   font-size: 0.75rem;
-  background: linear-gradient(90deg, #66d9ef, #ae81ff);
-  color: white;
-  font-weight: 500;
-  padding: .25em .3em;
-  border-radius: var(--border-radius);
-  margin-left: 0.25em;
 }
 
 h1 {
@@ -99,6 +93,15 @@ footer { padding: 0.5rem 0 1rem; }
   border-bottom: 0;
 }
 
+.badge {
+  /* background: linear-gradient(90deg, #66d9ef, #ae81ff); */
+  background-color: var(--link-color);
+  color: var(--bg-color);
+  font-weight: 500;
+  padding: 0.25em 0.3em;
+  border-radius: var(--border-radius);
+  margin-left: 0.25em;
+}
 .install-cli-wrapper {
   padding-right: 1em;
   background-color: var(--code-bg-color);
