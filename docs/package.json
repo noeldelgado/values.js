@@ -38,9 +38,6 @@
     "ignoreFiles": [
       ".gitignore"
     ],
-    "devPlugins": [
-      "tarima-lr"
-    ],
     "rename": "**/_entries/**:{filepath/1/_entries}/{filename}.{extname}",
     "_rename": [
       "**/_entries/**:{basedir/1/bundles/}/{fname}"
