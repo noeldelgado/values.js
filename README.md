@@ -223,7 +223,7 @@ MIT © [Noel Delgado](https://pixelia.me/)
 [github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg?branch=feature/v2
 [license-image]: https://img.shields.io/npm/l/values.js.svg
 [license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
-[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js
+[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js?label=size
 [bundlephobic-url]: https://bundlephobia.com/result?p=values.js
 [snyk-image]: https://snyk.io/test/npm/values.js/badge.svg
 [snyk-url]: https://snyk.io/test/npm/values.js
