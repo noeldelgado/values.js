@@ -2,9 +2,12 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "build": "tarima -fdV",
     "start": "npm run watch",
-    "watch": "tarima watch src"
+    "watch": "tarima watch src",
+    "_build": "tarima -fdV",
+    "build": "tarima -fdV && npm run min-css && npm run min-js",
+    "min-css": "uglify -s build/css/00.css -o build/css/00.css -c",
+    "min-js": "uglify -s build/js/00.js -o build/js/00.js"
   },
   "author": "Noel Delgado <auhcsei@gmail.com> (http://pixelia.me)",
   "license": "MIT",
