@@ -216,7 +216,7 @@ npm run dev 	# watch for changes and run tests
 ## License
 MIT © [Noel Delgado](https://pixelia.me/)
 
-[npm-image]: https://img.shields.io/npm/v/values.js.svg
+[npm-image]: https://img.shields.io/npm/v/values.js.svg?logo=npm&label=NPM
 [npm-url]: https://www.npmjs.com/package/values.js
 [license-image]: https://img.shields.io/npm/l/values.js.svg
 [license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
