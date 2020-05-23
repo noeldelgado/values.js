@@ -11,9 +11,14 @@ import rgb2hex from 'pure-color/convert/rgb2hex';
 
 export default class Values {
   constructor(color = '#000', type = 'base', weight = 0) {
-    const c = color === null ? '#000' : color;
     [this.rgb, this.alpha, this.type, this.weight] = [[0, 0, 0], 1, type, weight];
-    this.setColor(c);
+
+    const c = color === null ? '#000' : color;
+    if (typeof c !== 'string') throw new TypeError(`Input should be a string: ${c}`);
+
+    const parsed = parse(c);
+    if (!parsed) throw new Error(`Unable to parse color from string: ${c}`);
+    return this[`_setFrom${parsed.type.toUpperCase()}`]([...parsed.values, parsed.alpha]);
   }
 
   get hex() {
@@ -21,14 +26,9 @@ export default class Values {
   }
 
   setColor(color) {
-    if (typeof color !== 'string') throw new TypeError(`Input should be a string: ${color}`);
-
-    try {
-      const { type, values, alpha } = parse(color);
-      return this[`_setFrom${type.toUpperCase()}`]([...values, alpha]);
-    } catch (err) {
-      throw new Error(`Unable to parse color from string: ${color}`);
-    }
+    const parsed = parse(color);
+    if (!parsed) return null;
+    return this[`_setFrom${parsed.type.toUpperCase()}`]([...parsed.values, parsed.alpha]);
   }
 
   tint(weight = 50) {
@@ -56,9 +56,8 @@ export default class Values {
   }
 
   rgbString() {
-    const schema = this.alpha >= 1 ? 'rgb' : 'rgba';
     const channels = (this.alpha >= 1 ? this.rgb : [...this.rgb, this.alpha]).join(', ');
-    return `${schema}(${channels})`;
+    return `${this.alpha >= 1 ? 'rgb' : 'rgba'}(${channels})`;
   }
 
   getBrightness() {
