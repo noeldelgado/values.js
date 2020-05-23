@@ -4,10 +4,9 @@ const Values = require('../..');
 
 const { equal, deepEqual } = assert;
 
-describe('methods / shade', () => {
-  it('should default to 50% shade', () => {
-    const color = new Values('hsl(0 100% 50%)');
-    const shade = color.shade();
+const defaultWeight = (w) => {
+  it(`${w} should default to 50% weight shade`, () => {
+    const shade = new Values('hsl(0 100% 50%)').shade(w);
     const { hex, rgb, alpha, type, weight } = shade;
     equal(hex, '800000');
     deepEqual(rgb, [128, 0, 0]);
@@ -17,6 +16,15 @@ describe('methods / shade', () => {
     equal(shade.hexString(), '#800000');
     equal(shade.rgbString(), 'rgb(128, 0, 0)');
   });
+};
+
+describe('methods / shade', () => {
+  defaultWeight();
+  defaultWeight('');
+  defaultWeight('foo');
+  defaultWeight(NaN);
+  defaultWeight(null);
+  defaultWeight(undefined); // eslint-disable-line no-undefined
 
   it('should calculate independent shades', () => {
     const color = new Values('#00ffff');

@@ -4,11 +4,23 @@ const Values = require('../..');
 
 const { equal } = assert;
 
+const defaultWeight = (w) => {
+  it(`${w} should default to 10% weight shades`, () => {
+    const { length } = new Values('hsl(0 100% 50%)').shades(w);
+    equal(length, 10);
+  });
+};
+
 describe('method:shades', () => {
-  const color = new Values('#00ffff');
+  defaultWeight();
+  defaultWeight('');
+  defaultWeight('foo');
+  defaultWeight(NaN);
+  defaultWeight(null);
+  defaultWeight(undefined); // eslint-disable-line no-undefined
 
   it('should calculate shades', () => {
-    const shades = color.shades();
+    const shades = new Values('#00ffff').shades();
     equal(shades.length, 10);
     equal(shades[0].hexString(), '#00e6e6');
     equal(shades[2].hexString(), '#00b3b3');
@@ -19,7 +31,7 @@ describe('method:shades', () => {
   });
 
   it('should include shades weight', () => {
-    const shades = color.shades();
+    const shades = new Values('#00ffff').shades();
     assert.equal(shades[0].weight, 10);
     assert.equal(shades[2].weight, 30);
     assert.equal(shades[4].weight, 50);

@@ -5,7 +5,21 @@ const Values = require('../..');
 const { equal, deepEqual } = assert;
 const { round } = Math;
 
+const defaultWeight = (w) => {
+  it(`${w} should default to 10% weight`, () => {
+    const { length } = new Values('hsl(0 100% 50%)').all(w);
+    equal(length, 21);
+  });
+};
+
 describe('methods / all', () => {
+  defaultWeight();
+  defaultWeight('');
+  defaultWeight('foo');
+  defaultWeight(NaN);
+  defaultWeight(null);
+  defaultWeight(undefined); // eslint-disable-line no-undefined
+
   const color = new Values('#00ffff');
 
   describe('default weight 10', () => {

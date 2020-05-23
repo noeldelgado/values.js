@@ -4,21 +4,30 @@ const Values = require('../..');
 
 const { equal, deepEqual } = assert;
 
-describe('methods / tint', () => {
-  it('should default to 50% tint', () => {
-    const color = new Values('hsl(0 100% 50%)');
-    const shade = color.tint();
-    const { hex, rgb, alpha, type, weight } = shade;
+const defaultWeight = (w) => {
+  it(`${w} should default to 50% weight tint`, () => {
+    const tint = new Values('hsl(0 100% 50%)').tint(w);
+    const { hex, rgb, alpha, type, weight } = tint;
     equal(hex, 'ff8080');
     deepEqual(rgb, [255, 128, 128]);
     equal(alpha, 1);
     equal(type, 'tint');
     equal(weight, 50);
-    equal(shade.hexString(), '#ff8080');
+    equal(tint.hexString(), '#ff8080');
   });
+};
+
+describe('methods / tint', () => {
+  defaultWeight();
+  defaultWeight('');
+  defaultWeight('foo');
+  defaultWeight(NaN);
+  defaultWeight(null);
+  defaultWeight(undefined); // eslint-disable-line no-undefined
 
   it('should calculate independent tints', () => {
     const color = new Values('#00ffff');
+    equal(color.tint(0).hexString(), '#00ffff');
     equal(color.tint(10).hexString(), '#19ffff');
     equal(color.tint(20).hexString(), '#33ffff');
     equal(color.tint(30).hexString(), '#4dffff');
@@ -27,7 +36,7 @@ describe('methods / tint', () => {
     equal(color.tint(10).rgbString(), 'rgb(25, 255, 255)');
   });
 
-  it('should include shade type', () => {
+  it('should include tint type', () => {
     const color = new Values('#00ffff');
     equal(color.tint().type, 'tint');
     equal(color.tint(22).type, 'tint');

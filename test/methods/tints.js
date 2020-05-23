@@ -4,11 +4,23 @@ const Values = require('../..');
 
 const { equal } = assert;
 
-describe('values.method.tints', () => {
-  const color = new Values('#00ffff');
+const defaultWeight = (w) => {
+  it(`${w} should default to 10% weight tints`, () => {
+    const { length } = new Values('hsl(0 100% 50%)').tints(w);
+    equal(length, 10);
+  });
+};
+
+describe('methods / tints', () => {
+  defaultWeight();
+  defaultWeight('');
+  defaultWeight('foo');
+  defaultWeight(NaN);
+  defaultWeight(null);
+  defaultWeight(undefined); // eslint-disable-line no-undefined
 
   it('should calculate tints', () => {
-    const tints = color.tints();
+    const tints = new Values('#00ffff').tints();
     equal(tints.length, 10);
     equal(tints[0].hexString(), '#19ffff');
     equal(tints[2].hexString(), '#4dffff');
@@ -19,7 +31,7 @@ describe('values.method.tints', () => {
   });
 
   it('should include tints weight', () => {
-    const tints = color.tints();
+    const tints = new Values('#00ffff').tints();
     equal(tints[0].weight, 10);
     equal(tints[2].weight, 30);
     equal(tints[4].weight, 50);
