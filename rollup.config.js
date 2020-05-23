@@ -16,7 +16,7 @@ export default [
       name: 'Values'
     },
     plugins: [
-      resolve(),
+      resolve({ dedupe: ['parse-css-color'] }),
       commonjs(),
       buble(),
       cleanup(),
