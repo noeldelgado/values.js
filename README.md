@@ -2,7 +2,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 ![][github-actions-nodejs-image]
-![][github-actions-lighthouse-image]
+<!--![][github-actions-lighthouse-image]-->
 [![License][license-image]][license-url]
 [![Minzipped size][bundlephobia-image]][bundlephobic-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
