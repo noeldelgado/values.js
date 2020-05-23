@@ -2,119 +2,127 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Values.js – JS library to get the tints and shades of a color in hex, rgb and hsl formats.</title>
+    <title>values.js – get ints and shades of a color</title>
     <meta name="description" content="Javascript library to get the tints and shades of a colour.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="public/images/favicon.png" />
     <link rel="stylesheet" href="build/css/00.css">
   </head>
   <body>
-    <a href="https://github.com/noeldelgado/values.js" rel="external" class="github-corner" title="Fork me at GitHub">
-      <svg width="80" height="80" viewBox="0 0 250 250">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
-      </svg>
-    </a>
-
     <div class="main-content">
       <div class="wrapper">
         <section class="intro">
-          <h1><b>Values.js</b> is a library to get the tints and shades of a colour.</h1>
-          <div class="buttons-wrapper">
-            <a class="button" href="https://github.com/noeldelgado/values.js/archive/master.zip">Download <span>.zip file</span></a>
-            <a class="button" href="https://github.com/noeldelgado/values.js">View on <span>Github</span></a>
-          </div>
-          <div class="install-cli-wrapper">
-            <pre><code><b>npm</b> install values.js --save</code></pre>
-            <pre><code><b>bower</b> install values.js --save</code></pre>
-          </div>
-        </section>
-
-        <section class="usage">
-          <h2>Basic Usage</h2>
-          <pre><code>const Values = require('values.js')
-  , color = new Values('#0099ff');</code></pre>
+          <header>
+            <h1>values.js<sup class="badge" data-lib-version></sup></h1>
+            <h2 class="mb1">get <span class="text-tint">tints</span> and <span class="text-shade">shades</span> of a color</h2>
+            <div class="box install-cli-wrapper flex aic">
+              <code class="flex-auto"><b>npm</b> i values.js</code>
+              <div class="flex aic">
+                <a href="https://www.npmjs.com/package/values.js" rel="noopener noreferrer" aria-label="See project on NPM">
+                  <svg width="36" height="14" viewBox="0 0 18 7" aria-hidden="true"><path fill="#CB3837" d="M0,0h18v6H9v1H5V6H0V0z M1,5h2V2h1v3h1V1H1V5z M6,1v5h2V5h2V1H6z M8,2h1v2H8V2z M11,1v4h2V2h1v3h1V2h1v3h1V1H11z"/><polygon fill="#FFFFFF" points="1,5 3,5 3,2 4,2 4,5 5,5 5,1 1,1 "/><path fill="#FFFFFF" d="M6,1v5h2V5h2V1H6z M9,4H8V2h1V4z"/><polygon fill="#FFFFFF" points="11,1 11,5 13,5 13,2 14,2 14,5 15,5 15,2 16,2 16,5 17,5 17,1 "/></svg>
+                </a>
+                <a href="https://github.com/noeldelgado/values.js" rel="noopener noreferrer" aria-label="See project on GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+          </header>
         </section>
 
         <section class="demo">
-          <h2>Examples</h2>
-          <article class="demo-container ex-01">
-            <h3>Get Tints and Shades</h3>
-            <pre><code>new Values('#2ecc71').all(5).forEach(&hellip;);</code></pre>
+          <h3 class="mb1">Demo</h3>
+          <p class="mb1"><span class="di"></span> the color’s details to see the returned values. Check <a href="https://github.com/noeldelgado/values.js/blob/master/README.md">README</a> for more.</p>
+
+          <article class="demo-container ex-all box mb1"
+            style="--demo-color: hsl(145 63% 49% / 0.8)">
             <div class="colors"></div>
+            <code>
+              <details>
+                <summary>
+                  <span class='demo-color-circle'></span>
+                  <span class="demo-color-text"></span>
+                  <span class="demo-fn-info"></span>
+                </summary>
+                <pre class="language-js"></pre>
+              </details>
+            </code>
           </article>
 
-          <article class="demo-container ex-03">
-            <h3>Get Tints</h3>
-            <pre><code>new Values('#9b59b6').tints(10).forEach(&hellip;);</code></pre>
+          <article class="demo-container ex-tints box mb1"
+            style="--demo-color: rgb(155 89 182 / 1);">
             <div class="colors"></div>
+            <code>
+              <details>
+                <summary>
+                  <span class='demo-color-circle'></span>
+                  <span class="demo-color-text"></span>
+                  <span class="demo-fn-info"></span>
+                </summary>
+                <pre class="language-js"></pre>
+              </details>
+            </code>
           </article>
 
-          <article class="demo-container ex-02">
-            <h3>Get Shades</h3>
-            <pre><code>new Values('#3498db').shades(10).forEach(&hellip;)</code></pre>
+          <article class="demo-container ex-shades box mb1"
+            style="--demo-color: #3498dbf8;">
             <div class="colors"></div>
+            <code>
+              <details>
+                <summary>
+                  <span class='demo-color-circle'></span>
+                  <span class="demo-color-text"></span>
+                  <span class="demo-fn-info"></span>
+                </summary>
+                <pre class="language-js"></pre>
+              </details>
+            </code>
           </article>
 
-          <article class="demo-container ex-04">
-            <h3>Get a single tint by percentage</h3>
-            <pre><code>new Values('#e74c3c').tint(20);</code></pre>
+          <article class="demo-container ex-shade box mb1"
+            style="--demo-color: rgb(241 196 15 / 0.5)">
             <div class="colors"></div>
+            <code>
+              <details>
+                <summary>
+                  <span class='demo-color-circle'></span>
+                  <span class="demo-color-text"></span>
+                  <span class="demo-fn-info"></span>
+                </summary>
+                <pre class="language-js"></pre>
+              </details>
+            </code>
           </article>
 
-          <article class="demo-container ex-05">
-            <h3>Get a single shade by percentage</h3>
-            <pre><code>new Values('#f1c40f').shade(10);</code></pre>
+          <article class="demo-container ex-tint box mb2"
+            style="--demo-color: tomato">
             <div class="colors"></div>
+            <code>
+              <details>
+                <summary>
+                  <span class='demo-color-circle'></span>
+                  <span class="demo-color-text"></span>
+                  <span class="demo-fn-info"></span>
+                </summary>
+                <pre class="language-js"></pre>
+              </details>
+            </code>
           </article>
+
+          <p>Alternatively, check out <a href="https://noeldelgado.github.io/shadowlord">this open source project</a> that uses values.js</p>
         </section>
 
-        <section>
-          <h2>Extras</h2>
-          <article class="demo-container ex-06">
-            <h3>Get Brightness</h3>
-            <pre><code>new Values('#ee0').all(10).forEach(function (value) {
-  var e = document.createElement('div')
-    , brightness = value.getBrightness();
-
-  e.style.backgroundColor = value.hexString();
-  e.textContent = brightness;
-  e.style.color = (brightness < 50) ? '#fff' : '#000';
-
-  myContainer.appendChild(e);
-});</code></pre>
-            <div class="colors"></div>
-          </article>
-        </section>
-
-        <section>
-          <h2>Utils</h2>
-          <h3>Values.Utils.isHex(colorString)</h3>
-          <pre><code>Values.Utils.isHEX('09c')     => true
-Values.Utils.isHEX('#09c')    => true
-Values.Utils.isHEX('#0099cc') => true
-Values.Utils.isHEX('09cc')    => false</code></pre>
-          <h3>Values.Utils.isRGB(colorString)</h3>
-          <pre><code>Values.Utils.isRGB('rgb(0,0,0)')    => true
-Values.Utils.isRGB('rgba(0,0,0,0)') => true
-Values.Utils.isRGB('0,0,0')         => false</code></pre>
-          <h3>Values.Utils.isHSL(colorString)</h3>
-          <pre><code>Values.Utils.isHSL('hsl(198,58%,1%)')      => true
-Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
-Values.Utils.isHSl('hsl(361,10%,10%)')     => false</code></pre>
-        </section>
-
-        <section class="license">
-          <h2>License</h2>
-          <p>Copyright © Noel Delgado.</p>
-          <p>Licensed under the MIT License</p>
-          <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-          <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-          <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-        </section>
-
+        <footer class="flex">
+          <p class="flex-auto">License MIT © <a href="https://pixelia.me/">Noel Delgado</a></p>
+          <div>
+            <a href="https://twitter.com/pixelia_me" rel="noopener noreferrer" target="_blank" aria-label="Author’s twitter profile">
+              <svg focusable="false" height="12" viewBox="0 0 57 30" aria-hidden="true">
+                <path d="M28.1312,9.5341 C29.7966,9.5341 32.1025,10.627 34.248,12.368 C49.3297,11.5836 53.8793,-0.4796 55.5773,0.6783 C57.8326,3.2476 50.8638,16.3535 39.4,19.088 C39.8655,20.2628 40.1364,21.4786 40.1364,22.6983 C40.1364,25.9478 38.837,26.7409 36.7281,28.8974 L36.704,28.824 C36.4799,29.0276 36.208,29.2318 35.8945,29.4 C35.8945,29.4 36.1346,27.0065 34.9341,26.7672 C34.9341,26.7672 34.3739,27.4054 33.0133,27.2459 C32.8532,25.8896 32.293,25.4109 32.1329,25.3311 C31.4126,25.4109 30.9324,26.5278 30.132,26.5278 C29.8,26.1969 29.5184,25.5615 29.312,24.972 C29.0201,25.4221 28.6036,26.1128 28.2512,26.2885 C27.8796,26.2885 27.1476,25.2858 26.836,24.832 C26.6262,25.4581 26.3285,26.1707 25.9702,26.5278 C25.1699,26.5278 24.6896,25.4109 23.9694,25.3311 C23.8093,25.4109 23.249,25.8896 23.089,27.2459 C21.7284,27.4054 21.1681,26.7672 21.1681,26.7672 C19.9676,27.0065 20.2077,29.4 20.2077,29.4 C19.6122,29.0804 19.1739,28.6307 18.908,28.304 L18.8667,28.3947 C17.1544,26.3262 16.1259,25.5896 16.1259,22.6983 C16.1259,21.4938 16.3637,20.2895 16.784,19.128 C5.2094,16.4922 -1.8448,3.2615 0.4227,0.6783 C2.119,-0.4785 6.6627,11.5578 21.708,12.364 C23.8143,10.6244 26.1724,9.5341 28.1312,9.5341 Z M28.8514,20.3048 C28.8514,20.3048 30.4121,21.7409 32.213,21.7409 C34.0137,21.7409 35.3343,19.3474 35.3343,19.3474 L28.8514,20.3048 Z M20.6879,19.3474 C20.6879,19.3474 22.2486,21.7409 24.0494,21.7409 C25.8502,21.7409 27.1707,20.3048 27.1707,20.3048 L20.6879,19.3474 Z" fill-rule="evenodd"></path>
+              </svg>
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
-
     <script src="build/js/00.js"></script>
   </body>
 </html>

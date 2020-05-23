@@ -2,11 +2,54 @@
 
 ## [Unreleased]
 
-## [1.1.1] - [#6](../../pull/6) - 2020-04-16
+## [2.0.0] - [#7](https://github.com/noeldelgado/values.js/pull/7) - 2020-05-23
+### Added
+- alpha support
+  - #RRGGBBAA
+  - RGB CSS Color Module Level 4
+  - HSL CSS Color Module Level 4 (number, deg, rad & turn)
+  - `alpha` property to hold a value within `0` and `1`
+- [pre-defined color keywords](https://www.w3.org/wiki/CSS/Properties/color/keywords) support
+- transparent - Shorthand for transparent black, rgba(0,0,0,0)
+- default value `#000` for when `undefined`, `null`  or `<empty>` is passed to the constructor
+- editorconfig
+- .eslintrc
+- `lighthouse-ci` action for `gh-pages`
+
+### Changed
+- refactor code
+  - move validations to [parse-css-color](https://github.com/noeldelgado/parse-css-color)
+  - move mix color functionality to [mix-css-color](https://github.com/noeldelgado/mix-css-color)
+  - add [pure-color](https://github.com/WickyNilliams/pure-color) for color format conversion
+- `throw` error if input is not a CSS string recognized by `parse-css-color`
+- `rgb` property now returns an array in the form of `[r, g, b]` instead of `{ r: number, g: number, b: number }`
+- `hex` is now a getter (access backward-compatible)
+  - if alpha is less than `1` it returns 8 digits now `#RRGGBBAA` otherwise 6 `#RRGGBB`
+- `hexString` method return value could include alpha
+  - if alpha is less than `1` it returns 8 digits now `#RRGGBBAA` otherwise 6 `#RRGGBB`
+- `isTint`, `isShade` and `isBaseColor` properties replaced by new `type` field
+  - `type="tint"`
+  - `type="shade"`
+  - `type="base"`
+- `percentage` property is now `weight` and, it is included on every instance instead of just for tints and shades
+- `setColor` return null if color is not accepted
+
+### Removed
+- bower distribution
+- properties
+  - `hsl`
+  - `isTint`, `isShade`, `isBaseColor`
+- methods
+  - `hslString`
+- static utils functions
+  - `isHex`, `isRGB` and `isHSL` logic moved to [parse-css-color](https://github.com/noeldelgado/parse-css-color)
+  - `mix` (moved to [mix-css-color](https://github.com/noeldelgado/mix-css-color))
+
+## [1.1.1] - [#6](https://github.com/noeldelgado/values.js/pull/6) - 2020-04-16
 ### Fixed
 - shade is not defined
 
-## [1.1.0] - [#5](../../pull/5) - 2020-03-10
+## [1.1.0] - [#5](https://github.com/noeldelgado/values.js/pull/5) - 2020-03-10
 ### Added
 - ✨ new properties to the Array result of `vallues.all()` [`5f204a2`](https://github.com/noeldelgado/values.js/commit/5f204a2b4757bf0e2e77910ae50f44bbb19af56f)
   - `isTint: true` for tints
@@ -84,7 +127,8 @@
 ## [0.1.1] - 2014-07-02
 - initial release
 
-[Unreleased]: https://github.com/noeldelgado/values.js/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/noeldelgado/values.js/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/noeldelgado/values.js/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/noeldelgado/values.js/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/noeldelgado/values.js/compare/v1.0.3...v1.1.0
 [1.0.3]: https://github.com/noeldelgado/values.js/compare/v1.0.2...v1.0.3

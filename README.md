@@ -1,18 +1,32 @@
 # values.js
-[![npm-image](https://img.shields.io/npm/v/values.js.svg)](https://www.npmjs.com/package/values.js)
-![bower-image](https://img.shields.io/bower/v/values.js.svg)
-[![Known Vulnerabilities](https://snyk.io/test/npm/values.js/1.1.0/badge.svg)](https://snyk.io/test/npm/values.js/1.1.0)
-![license-image](https://img.shields.io/npm/l/values.js.svg)
 
-The lightness or darkness of a color is called its value.
-Tints are light values that are made by mixing a color with white, which increases lightness.
-Shades are dark values that are made by mixing a color with black, which reduces lightness.
+[![NPM Version][npm-image]][npm-url]
+![][github-actions-nodejs-image]
+[![License][license-image]][license-url]
+[![Minzipped size][bundlephobia-image]][bundlephobic-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![Dependencies][david-image]][david-url]
+[![Dev Dependencies][david-dev-image]][david-dev-url]
+[![Total alerts][lgtm-image]][lgtm-url]
+[![Language grade: JavaScript][lgtm-grade-image]][lgtm-grade-url]
 
-## Demo
+Get tints and shades of a CSS color
+
+> _The lightness or darkness of a color is called its value.
+Tints are light values that are made by mixing a color with white, which increases lightness. Shades are dark values that are made by mixing a color with black, which reduces lightness._
+
 https://noeldelgado.github.io/values.js/
 
-## Dependencies
-None
+### Supports
+* \<color value\>
+	* Hexadecimal RGB value: #RGB #RRGGBB
+	* #RGBA #RRGGBBAA (4 and 8-digit hexadecimal RGBA notation)
+	* RGB/A - CSS Color Module Level 3 and 4 (number, percentage)
+	* HSL/A - CSS Color Module Level 3 and 4 (number, deg, rad, turn)
+* \<color keyword\>
+	* One of the [pre-defined color keywords](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+* transparent
+	* Shorthand for transparent black, rgba(0,0,0,0).
 
 ## Installation
 
@@ -22,180 +36,113 @@ None
 npm install values.js --save
 ```
 
-**Bower**
+Or as a `<script>` tag from a CDN as `Values`:
 
-```sh
-bower install values.js --save
+**Unpkg CDN**
+
+```html
+<script src="https://unpkg.com/values.js"></script>
 ```
 
-## Usage Example
-```js
-var Values = require('values.js')
-  , color = new Values('#0099ff');
+**jsDelivr CDN**
 
-console.log(color.hex)              // => "0099ff"
-console.log(color.rgb)              // => {r:0, g:153, b:255}
-console.log(color.hsl) 	            // => {h:204, s: 100, l: 50}
-
-console.log(color.hexString())      // => "#0099ff"
-console.log(color.rgbString()) 	    // => "rgb(0, 153, 255)"
-console.log(color.hslString())      // => "hsl(204, 100%, 50%)"
-
-console.log(color.getBrightness())  // => 53
-
-color.tints().forEach(function(tint) {
-  console.log(tint);     // => [Values instance]
-});
-
-color.shades().forEach(function(shade) {
-  console.log(shade);    // => [Values instance]
-});
-
-// tints, original color and shades
-color.all().forEach(function(color) {
-  console.log(color);   // => [Value instance]
-});
+```html
+<script src="https://cdn.jsdelivr.net/npm/values.js"></script>
 ```
-## Instance
+
+## Usage
 ```js
-// console.log(new Values('#09f'))
-{
-	hex: "09c"
-	hsl: { h: 195, s: 100, l: 40 }
-	rgb: { r: 0, g: 153, b: 204 }
-	...
+import Values from 'values.js'
+const color = new Values('hsl(204deg 100% 50% / 1)'), { log } = console
+
+log(color.tint(25))
+//> { rgb: [64, 179, 255], alpha: 1, type: "tint", weight: 25, ...methods }
+log(color.shade(12))
+//> { rgb: [0, 135, 224], alpha: 1, type: "shade", weight: 12, ...methods }
+log(color.tints(8))
+//> (12) [Values...]
+log(color.shades(23))
+//> (4) [Values...]
+log(color.all(20))
+//> (11) [Values...]
+
+// instance example for 'red'
+Values {
+  alpha: 1
+  rgb: (3) [255, 0, 0]
+  type: "base"
+  weight: 0
+  get hex: ƒ(...)
+  setColor: ƒ setColor(color)
+  tint: ƒ tint(weight=50)
+  tints: ƒ tints(weight=10)
+  shade: ƒ shade(weight=50)
+  shades: ƒ shades(weight=10)
+  all: ƒ all(weight=10)
+  hexString: ƒ hexString()
+  rgbString: ƒ rgbString()
+  getBrightness: ƒ getBrightness()
 }
 ```
+See [tests](https://github.com/noeldelgado/values.js/tree/master/test) for more cases.
 
-## Instance Methods
+## API
 
-### setColor(String:color)
-```js
-/* Sets the base color for which all operations are based. Updates the instance's properties.
- * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
- * @return {Values|Error}
- */
+### constructor(color)
+Throws if the color is not accepted.
 
-color.setColor('ff0');
-color.setColor('rgb(255,255,0)');
-color.setColor('hsl(60,100%,50%)');
-```
+- `@param {string} color` — a valid CSS color string
 
-### tint([Number:percentage=50])
-```js
-/* Lightens the instance by mixing it with white as specified by @percentage.
- * @param {number} [percentage=50]
- * @return {Values}
- */
+### setColor(color)
+Sets a new base color, returns `null` if color has not been accepted.
 
-color.tint();
-color.tint(10);
-color.tint(24);
-```
+- `@param {string} color` - a valid CSS color string
+- `@return {Values|null}`
 
-### shade([Number:percentage=50)
-```js
-/* Darkens the instance color by mixing it with black as specified by @percentage.
- * @param {number} [percentage=50]
- * @return {Values}
- */
+### tint([weight=50])
+Lightens the base color by mixing it with white as specified by weight.
 
-color.shade();
-color.shade(9);
-color.shade(31);
-```
+- `@param {number} [weight=50]`
+- `@return {Values}`
 
-### tints([Number:percentage=10])
-````js
-/* Generates the tints of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
- */
+### shade([weight=50)
+Darkens the base color by mixing it with black as specified by weight.
 
-color.tints(20).forEach(function (tint) {
-    console.log(tint)
-})
-````
+- `@param {number} [weight=50]`
+- `@return {Values}`
 
-### shades([Number:percentage=10])
-````js
-/* Generates the shades of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
-*/
+### tints([weight=10])
+Generates the tints of the base color as specified by weight.
 
-color.shades(20).forEach(function (shade) {
-    console.log(shade)
-})
-````
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
 
-### all([Number:percentage=10])
-```js
-/* Generates the tints and shades of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
- */
+### shades([percentage=10])
+Generates the shades of the base color as specified by weight.
 
-color.all().forEach(function (color) {
-    console.log(color)
-})
-```
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
 
-### getBrightness()
-````js
-/* Calculates the brightness of the instance base-color.
- * @return {number} the base-color brightness.
- */
-color.getBrightness();
-````
+### all([weight=10])
+Generates the tints and shades of the base color as specified by weight.
+
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
 
 ### hexString()
-```js
-/* Returns the instance color in hexadecimal string form.
- * @returns {string} e.g. '#000000'
- */
- color.hexString();
-```
+Returns the color in hexadecimal RGB notation.
+
+- `@returns {string}` @example `#000000` or `#00000080`
 
 ### rgbString()
-```js
-/* Returns the instance color in rgb string form.
- * @returns {string} e.g. 'rgb(0, 0, 0)'
- */
-color.rgbString();
-```
+Returns the color in rgb() functional notation.
 
-### hslString()
-```js
-/* Returns the instance color in hsl string form.
- * @returns {string} e.g. 'hsl(0, 0%, 0%)'
- */
-color.hslString();
-```
+- `@returns {string}` @example `rgb(0, 0, 0)` or `rgba(0, 0, 0, 0.5)`
 
-## Static Methods (Utils)
+### getBrightness()
+Calculates the brightness of the color.
 
-### isHex(String:color)
-```js
-Values.Utils.isHEX('09c')     => true
-Values.Utils.isHEX('#09c')    => true
-Values.Utils.isHEX('#0099cc') => true
-Values.Utils.isHEX('09cc')    => false
-```
-
-### isRGB(String:color)
-```js
-Values.Utils.isRGB('rgb(0,0,0)')    => true
-Values.Utils.isRGB('rgba(0,0,0,.0)') => true
-Values.Utils.isRGB('0,0,0')         => false
-```
-
-### isHSL(String:color)
-```js
-Values.Utils.isHSL('hsl(198,58%,1%)')      => true
-Values.Utils.isHSL('hsla(360,10%,10%, 1)') => true
-Values.Utils.isHSl('hsl(361,10%,10%)')     => false
-```
+- `@return {number}` — the base-color brightness.
 
 ## Dev
 ```sh
@@ -205,7 +152,28 @@ npm run dev 	# watch for changes and run tests
 ```
 
 ## Related
-- [Shadowlord](https://github.com/noeldelgado/shadowlord) - Tints and shades generator tool
+- [shadowlord](https://github.com/noeldelgado/shadowlord) - Tints and shades generator tool
+- [mix-css-color](https://github.com/noeldelgado/mix-css-color) - Mix two CSS colors together in variable proportion. Opacity is included in the calculations.
+- [parse-css-color](https://github.com/noeldelgado/parse-css-color) - Parse a CSS color string
 
 ## License
-MIT © [Noel Delgado](http://pixelia.me/)
+MIT © [Noel Delgado](https://pixelia.me/)
+
+[npm-image]: https://img.shields.io/npm/v/values.js.svg?logo=npm&label=NPM
+[npm-url]: https://www.npmjs.com/package/values.js
+[github-actions-nodejs-image]: https://github.com/noeldelgado/values.js/workflows/Node.js%20CI/badge.svg
+[github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg
+[license-image]: https://img.shields.io/npm/l/values.js.svg
+[license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
+[bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js?label=size
+[bundlephobic-url]: https://bundlephobia.com/result?p=values.js
+[snyk-image]: https://snyk.io/test/npm/values.js/badge.svg
+[snyk-url]: https://snyk.io/test/npm/values.js
+[david-image]: https://img.shields.io/david/noeldelgado/values.js.svg
+[david-url]: https://david-dm.org/noeldelgado/values.js
+[david-dev-image]: https://img.shields.io/david/dev/noeldelgado/values.js.svg
+[david-dev-url]: https://david-dm.org/noeldelgado/values.js?type=dev
+[lgtm-image]: https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
+[lgtm-url]: https://lgtm.com/projects/g/noeldelgado/values.js/alerts/
+[lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
+[lgtm-grade-url]: https://lgtm.com/projects/g/noeldelgado/values.js/context:javascript
