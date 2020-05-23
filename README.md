@@ -2,7 +2,6 @@
 
 [![NPM Version][npm-image]][npm-url]
 ![][github-actions-nodejs-image]
-<!--![][github-actions-lighthouse-image]-->
 [![License][license-image]][license-url]
 [![Minzipped size][bundlephobia-image]][bundlephobic-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
@@ -162,8 +161,8 @@ MIT © [Noel Delgado](https://pixelia.me/)
 
 [npm-image]: https://img.shields.io/npm/v/values.js.svg?logo=npm&label=NPM
 [npm-url]: https://www.npmjs.com/package/values.js
-[github-actions-nodejs-image]: https://github.com/noeldelgado/values.js/workflows/Node.js%20CI/badge.svg?branch=feature/v2
-[github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg?branch=feature/v2
+[github-actions-nodejs-image]: https://github.com/noeldelgado/values.js/workflows/Node.js%20CI/badge.svg
+[github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg
 [license-image]: https://img.shields.io/npm/l/values.js.svg
 [license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
 [bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js?label=size
