@@ -51,156 +51,99 @@ Or as a `<script>` tag from a CDN as `Values`:
 <script src="https://cdn.jsdelivr.net/npm/values.js"></script>
 ```
 
-## Usage Example
+## Usage
 ```js
 import Values from 'values.js'
 const color = new Values('hsl(204deg 100% 50% / 1)'), { log } = console
 
-log(color.rgb)   //> [0, 153, 255]
-log(color.alpha) //> 1
-log(color.hex)   //> "0099ff" (without token)
+log(color.tint(25))
+//> { rgb: [64, 179, 255], alpha: 1, type: "tint", weight: 25, ...methods }
+log(color.shade(12))
+//> { rgb: [0, 135, 224], alpha: 1, type: "shade", weight: 12, ...methods }
+log(color.tints(8))
+//> (12) [Values...]
+log(color.shades(23))
+//> (4) [Values...]
+log(color.all(20))
+//> (11) [Values...]
 
-log(color.hexString()) //> "#0099ff" (with token)
-log(color.rgbString()) //> "rgb(0, 153, 255)"
-log(color.getBrightness()) //> 53
-
-color.tints().forEach((tint) => {
-  log(tint) //> [Values instance]
-  // do stuff with `tint`, e.g.: tint.hexString()
-});
-
-color.shades().forEach((shade) => {
-  log(shade) //> [Values instance]
-  // do stuff with `shade`
-});
-
-// tints, original color and shades
-color.all().forEach((value) => {
-  log(value); //> [Value instance]
-  // do stuff with value,
-  // e.g.: if value.type === 'base' then addClass etc
-  // if value.getBrightness() > 50 then set color white
-});
-```
-## Instance Signature Example
-```js
-// log(new Values('#09f'))
-{
-  // properties
-  /* oneOf("base", "tint", "shade") */
-  type: "base"
-  /* percentage balance point between the two colors */
-  weight: 0
-  rgb: [0, 153, 255]
-  /* number within 0 and 1 */
+// instance example for 'red'
+Values {
   alpha: 1
-  // getters
-  /* return its #RGB hexadecimal notation without the token */
-  hex: (...)
-  // methods
-  ƒ setColor(color)
-  ƒ shade(weight = 50)
-  ƒ shades(weight = 10)
-  ƒ tint(weight = 50)
-  ƒ tints(weight = 10)
-  ƒ all(weight = 10)
-  ƒ hexString()
-  ƒ rgbaString()
-  ƒ getBrightness()
+  rgb: (3) [255, 0, 0]
+  type: "base"
+  weight: 0
+  get hex: ƒ(...)
+  setColor: ƒ setColor(color)
+  tint: ƒ tint(weight=50)
+  tints: ƒ tints(weight=10)
+  shade: ƒ shade(weight=50)
+  shades: ƒ shades(weight=10)
+  all: ƒ all(weight=10)
+  hexString: ƒ hexString()
+  rgbString: ƒ rgbString()
+  getBrightness: ƒ getBrightness()
 }
 ```
+See [tests](https://github.com/noeldelgado/values.js/tree/master/test) for more cases.
 
 ## API
 
-### setColor(String:color)
-```js
-/* Sets the base color for which all operations are based. Updates the instance's properties.
- * @param {string} color - A valid color format (#000, rgb(0,0,0), hsl(0,0%,0%))
- * @return {Values|Error}
- */
-color.setColor('ff0');
-color.setColor('rgb(255,255,0)');
-color.setColor('hsl(60,100%,50%)');
-```
+### constructor(color)
+Throws if the color is not accepted.
 
-### tint([Number:percentage=50])
-```js
-/* Lightens the instance by mixing it with white as specified by @percentage.
- * @param {number} [percentage=50]
- * @return {Values}
- */
-color.tint();
-color.tint(10);
-color.tint(24);
-```
+- `@param {string} color` — a valid CSS color string
 
-### shade([Number:percentage=50)
-```js
-/* Darkens the instance color by mixing it with black as specified by @percentage.
- * @param {number} [percentage=50]
- * @return {Values}
- */
-color.shade();
-color.shade(9);
-color.shade(31);
-```
+### setColor(color)
+Sets a new base color, returns `null` if color has not been accepted.
 
-### tints([Number:percentage=10])
-````js
-/* Generates the tints of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
- */
-color.tints(20).forEach(function (tint) {
-    console.log(tint)
-})
-````
+- `@param {string} color` - a valid CSS color string
+- `@return {Values|null}`
 
-### shades([Number:percentage=10])
-````js
-/* Generates the shades of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
-*/
-color.shades(20).forEach(function (shade) {
-    console.log(shade)
-})
-````
+### tint([weight=50])
+Lightens the base color by mixing it with white as specified by weight.
 
-### all([Number:percentage=10])
-```js
-/* Generates the tints and shades of the instance color as specified by @percentage.
- * @param {number} [percentage=10]
- * @return {Array<Values>}
- */
-color.all().forEach(function (color) {
-    console.log(color)
-})
-```
+- `@param {number} [weight=50]`
+- `@return {Values}`
 
-### getBrightness()
-````js
-/* Calculates the brightness of the instance base-color.
- * @return {number} the base-color brightness.
- */
-color.getBrightness();
-````
+### shade([weight=50)
+Darkens the base color by mixing it with black as specified by weight.
+
+- `@param {number} [weight=50]`
+- `@return {Values}`
+
+### tints([weight=10])
+Generates the tints of the base color as specified by weight.
+
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
+
+### shades([percentage=10])
+Generates the shades of the base color as specified by weight.
+
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
+
+### all([weight=10])
+Generates the tints and shades of the base color as specified by weight.
+
+- `@param {number} [weight=10]`
+- `@return {Array<Values>}`
 
 ### hexString()
-```js
-/* Returns the instance color in hexadecimal string form.
- * @returns {string} e.g. '#000000'
- */
- color.hexString();
-```
+Returns the color in hexadecimal RGB notation.
+
+- `@returns {string}` @example `#000000` or `#00000080`
 
 ### rgbString()
-```js
-/* Returns the instance color in rgb string form.
- * @returns {string} e.g. 'rgb(0, 0, 0)'
- */
-color.rgbString();
-```
+Returns the color in rgb() functional notation.
+
+- `@returns {string}` @example `rgb(0, 0, 0)` or `rgba(0, 0, 0, 0.5)`
+
+### getBrightness()
+Calculates the brightness of the color.
+
+- `@return {number}` — the base-color brightness.
 
 ## Dev
 ```sh
