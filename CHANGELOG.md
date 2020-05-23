@@ -4,17 +4,18 @@
 
 (feat/v2)
 ### Added
-- support for
+- alpha support
   - #RRGGBBAA
   - RGB CSS Color Module Level 4
   - HSL CSS Color Module Level 4 (number, deg, rad & turn)
-  - color keyword
+  - color keywords
   - transparent
 - rollup bundler
 - .editorconfig
 - eslint
   - .eslintrc
 - `instance.alpha` property to hold a value within `0` and `1`
+- default value `#000` when `undefined`, `null`  or `<empty>` is passed to the constructor
 
 ### Changed
 - refactor code (es6)
@@ -23,14 +24,17 @@
   - add pure-color dependency for color format convertion
 - add more tests
 - `throw` error if input is not a CSS string recognized by `parse-css-color`
-- `instance.rgb` property now returns an array in the form of `[r, g, b]`
-- `instance.hex` is now a getter (backward compatible access)
+- `instance.rgb` property now returns an array in the form of `[r, g, b]` instead of `{ r: number, g: number, b: number }`
+- `instance.hex` is now a getter (access backward-compatible)
   - if alpha is less than `1` it returns 8 digits now `#RRGGBBAA` otherwise 6 `#RRGGBB`
-- `isTint`, `isShade` and `isBaseColor` properties were moved to a single field `type`
-  - for tints `instance.type="tint"`
+- `hexString method` return value could include alpha
+  - if alpha is less than `1` it returns 8 digits now `#RRGGBBAA` otherwise 6 `#RRGGBB`
+- `isTint`, `isShade` and `isBaseColor` properties were moved to the new `type` field
+  - for tints `type="tint"`
   - shades => `type="shade"`
   - base color => `type="base"`
-- `percentage` property is now called `weight` and it is included on every single instance instead of just for isntances of tints and shades
+- `percentage` property is now called `weight` and it is now included on every single instance instead of just for isntances of tints and shades
+- `setColor` return null if color is not accepted
 
 ### Removed
 - bower distribution
