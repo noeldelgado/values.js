@@ -1,6 +1,6 @@
 {
   "name": "values.js",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "description": "Get tints and shades of a CSS color",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -8,6 +8,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
