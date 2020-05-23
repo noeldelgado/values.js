@@ -32,11 +32,11 @@ export default class Values {
   }
 
   tint(weight = 50) {
-    return new Values(`rgb(${mix('#fff', this.rgbaString(), weight).rgba})`, 'tint', weight);
+    return new Values(`rgb(${mix('#fff', this.rgbString(), weight).rgba})`, 'tint', weight);
   }
 
   shade(weight = 50) {
-    return new Values(`rgb(${mix('#000', this.rgbaString(), weight).rgba})`, 'shade', weight);
+    return new Values(`rgb(${mix('#000', this.rgbString(), weight).rgba})`, 'shade', weight);
   }
 
   tints(weight = 10) {
@@ -55,8 +55,10 @@ export default class Values {
     return rgb2hex(this.alpha >= 1 ? this.rgb : [...this.rgb, this.alpha]);
   }
 
-  rgbaString() {
-    return `rgba(${this.rgb.join(', ')}, ${this.alpha})`;
+  rgbString() {
+    const schema = this.alpha >= 1 ? 'rgb' : 'rgba';
+    const channels = (this.alpha >= 1 ? this.rgb : [...this.rgb, this.alpha]).join(', ');
+    return `${schema}(${channels})`;
   }
 
   getBrightness() {
