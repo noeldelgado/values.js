@@ -9,6 +9,8 @@ import parse from 'parse-css-color';
 import hsl2rgb from 'pure-color/convert/hsl2rgb';
 import rgb2hex from 'pure-color/convert/rgb2hex';
 
+const defaultNumberParam = (v, d) => (v === null || isNaN(v) || typeof v === 'string' ? d : v);
+
 export default class Values {
   constructor(color = '#000', type = 'base', weight = 0) {
     [this.rgb, this.alpha, this.type, this.weight] = [[0, 0, 0], 1, type, weight];
@@ -31,20 +33,20 @@ export default class Values {
     return this[`_setFrom${parsed.type.toUpperCase()}`]([...parsed.values, parsed.alpha]);
   }
 
-  tint(weight = 50) {
-    return new Values(`rgb(${mix('#fff', this.rgbString(), weight).rgba})`, 'tint', weight);
+  tint(weight, w = defaultNumberParam(weight, 50)) {
+    return new Values(`rgb(${mix('#fff', this.rgbString(), w).rgba})`, 'tint', w);
   }
 
-  shade(weight = 50) {
-    return new Values(`rgb(${mix('#000', this.rgbString(), weight).rgba})`, 'shade', weight);
+  shade(weight, w = defaultNumberParam(weight, 50)) {
+    return new Values(`rgb(${mix('#000', this.rgbString(), w).rgba})`, 'shade', w);
   }
 
-  tints(weight = 10) {
-    return Array.from({ length: 100 / weight }, (_, i) => this.tint((i + 1) * weight));
+  tints(weight, w = defaultNumberParam(weight, 10)) {
+    return Array.from({ length: 100 / w }, (_, i) => this.tint((i + 1) * w));
   }
 
-  shades(weight = 10) {
-    return Array.from({ length: 100 / weight }, (_, i) => this.shade((i + 1) * weight));
+  shades(weight, w = defaultNumberParam(weight, 10)) {
+    return Array.from({ length: 100 / w }, (_, i) => this.shade((i + 1) * w));
   }
 
   all(weight = 10) {
@@ -70,8 +72,7 @@ export default class Values {
   }
 
   _setFromHSL([h, s, l, a]) {
-    const [r, g, b] = hsl2rgb([h, s, l]).map(Math.round);
-    [this.rgb, this.alpha] = [[r, g, b], a];
+    [this.rgb, this.alpha] = [hsl2rgb([h, s, l]).map(Math.round), a];
     return this;
   }
 }
