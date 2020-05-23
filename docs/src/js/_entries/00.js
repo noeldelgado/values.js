@@ -1,55 +1,66 @@
-(function(){
-  var Values = require('../../../../');
+/**
+---
+$bundle: true
+---
+*/
+/* global document */
+// import Prism from 'prismjs';
 
-  var dom = {
-    e1: document.querySelector('.ex-01'),
-    e2: document.querySelector('.ex-02'),
-    e3: document.querySelector('.ex-03'),
-    e4: document.querySelector('.ex-04'),
-    e5: document.querySelector('.ex-05'),
-    e6: document.querySelector('.ex-06')
-  };
+import Values from '../../../../';
 
-  // Helper Function
-  var f = function (obj, values, section, container, brightnessSample) {
-    var frag = document.createDocumentFragment();
+// Prism.manual = true;
 
-    for (var i = 0; i < values.length; i += 1) {
-      var e = document.createElement('div');
-      e.className = "color";
-      e.style.backgroundColor = values[i].hexString();
+const $ = (query, el = document) => el.querySelector(query);
 
-      if (values[i].hex === obj.hex) {
-        e.className += " orig";
-      }
+const printVersion = (version) => {
+  $('[data-lib-version]').textContent = version;
+};
 
-      if (brightnessSample) {
-        var brightness = values[i].getBrightness();
-        e.textContent = brightness;
-        e.style.color = (brightness < 50) ? "#fff" : "#000";
-      }
+const createColor = (value) => {
+  const e = document.createElement('div');
 
-      frag.appendChild(e);
+  e.className = 'color';
+  e.style.backgroundColor = value.hexString();
+  // e.textContent = `${value.weight}%`;
+  // e.style.color = value.getBrightness() > 50 ? 'black' : 'white';
+
+  if (value.type === 'base') e.className += ' orig';
+
+  return e;
+};
+
+const updateDemo = (section, type, weight) => {
+  const frag = document.createDocumentFragment();
+  const color = section.style.getPropertyValue('--demo-color').trim();
+  const instance = new Values(color);
+  const values = instance[type](weight);
+  const details = $('details pre', section);
+
+  if (Array.isArray(values)) {
+    for (let i = 0; i < values.length; i += 1) {
+      frag.appendChild(createColor(values[i]));
     }
+  } else {
+    frag.appendChild(createColor(values));
+  }
 
-    container.appendChild( frag );
-  };
+  $('.colors', section).appendChild(frag);
+  $('.demo-color-text', section).textContent = color;
+  $('.demo-fn-info', section).innerHTML = `<b>${type}</b> ${weight}%`;
 
-  var ex1 = new Values('#2ecc71');
-  f(ex1, ex1.all(5), dom.e1, dom.e1.querySelector('.colors'));
+  if (details) {
+    details.innerHTML = JSON.stringify(values, null, 2);
+    // details.innerHTML = Prism.highlight(
+    //   JSON.stringify(values, null, 2),
+    //   Prism.languages.javascript,
+    //   'javascript'
+    // );
+  }
+};
 
-  var ex3 = new Values('#9b59b6')
-  f(ex3, ex3.tints(10), dom.e3, dom.e3.querySelector('.colors'));
-
-  var ex2 = new Values('#3498db');
-  f(ex2, ex2.shades(10), dom.e2, dom.e2.querySelector('.colors'));
-
-  var ex4 = new Values('#e74c3c');
-  f(ex4, [ex4].concat(ex4.tint(20)), dom.e4, dom.e4.querySelector('.colors'));
-
-  var ex5 = new Values('#f1c40f');
-  f(ex5, [ex5].concat(ex5.shade(10)), dom.e5, dom.e5.querySelectorAll('.colors')[0]);
-
-  var ex6 = new Values('#ee0');
-  f(ex6, ex6.all(10), dom.e6, dom.e6.querySelector('.colors'), true);
-}());
+printVersion(`${Values.VERSION}`);
+updateDemo($('.ex-all'), 'all', 16);
+updateDemo($('.ex-tints'), 'tints', 10);
+updateDemo($('.ex-shades'), 'shades', 12);
+updateDemo($('.ex-shade'), 'shade', 14);
+updateDemo($('.ex-tint'), 'tint', 25);
