@@ -7,9 +7,14 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
     steps:
-      - run: npm run coverage
       - name: Upload coverage to Codecov
+      - uses: actions/checkout@v2
+      - run: npm run coverage
         uses: codecov/codecov-action@v1.0.7
         with:
           name: codecov-umbrella
