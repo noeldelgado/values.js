@@ -18,6 +18,12 @@
     "coverage": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov",
     "prepublishOnly": "npm run build && npm test"
   },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/index.js"
+    ]
+  },
   "keywords": [
     "tints",
     "shades",
