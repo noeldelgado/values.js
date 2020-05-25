@@ -15,7 +15,7 @@ jobs:
       PYTHON: '3.7'
 
     steps:
-      - uses: actions/checkout@master
+    - uses: actions/checkout@master
     - name: Setup Python
       uses: actions/setup-python@master
       with:
