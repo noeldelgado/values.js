@@ -12,9 +12,10 @@ jobs:
         node-version: [10.x, 12.x]
 
     steps:
-      - name: Upload coverage to Codecov
       - uses: actions/checkout@v2
-      - run: npm run coverage
+      - name: Genetate covetage
+        run: npm run coverage
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
           name: codecov-umbrella
