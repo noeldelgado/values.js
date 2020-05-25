@@ -15,7 +15,7 @@
     "dev": "rollup -c -w",
     "test": "mocha test/*",
     "test:watch": "npm test -- -w",
-    "coverage": "nyc --reporter=cobertura npm run test",
+    "coverage": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov",
     "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [

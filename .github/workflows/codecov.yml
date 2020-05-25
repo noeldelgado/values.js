@@ -19,11 +19,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
+      - run: npm test
       - run: npm run coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
           name: codecov-umbrella
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/cobertura-coverage.xml
+          file: ./coverage.lcov
           fail_ci_if_error: true
