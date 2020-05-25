@@ -3,16 +3,17 @@ name: Codecov
 on: push
 
 jobs:
-  run:
+  coverage:
 
     runs-on: ubuntu-latest
 
     steps:
-      - run: npm install nyc
-      - run: nyc npm test
+      - name: Run tests
+        run: npm run coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
           name: codecov-umbrella
           token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/cobertura-coverage.xml
           fail_ci_if_error: true
