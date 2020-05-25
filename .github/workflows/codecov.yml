@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run tests
-        run: npm run coverage
+      - run: npm run coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
