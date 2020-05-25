@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install deps
+        run: npm install nyc
+        run: nyc npm test
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
         with:
