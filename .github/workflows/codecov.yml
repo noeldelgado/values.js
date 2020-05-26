@@ -13,13 +13,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Genetate covetage
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build --if-present
-      - run: npm test
       - run: npm run coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1.0.7
@@ -28,33 +27,3 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/lcov.info
           fail_ci_if_error: true
-
-# name: Test Coveralls
-
-# on: ["push", "pull_request"]
-
-# jobs:
-
-#   build:
-#     name: Build
-#     runs-on: ubuntu-latest
-#     steps:
-
-#     - uses: actions/checkout@v1
-
-#     - name: Use Node.js 10.x
-#       uses: actions/setup-node@v1
-#       with:
-#         node-version: 12.x
-
-#     - name: npm ci, npm build, npm run coverage
-#       run: |
-#         npm ci
-#         npm build
-#         npm run coverage
-
-#     - name: Coveralls
-#       uses: coverallsapp/github-action@master
-#       with:
-#         path-to-lcov: ./coverage.lcov
-#         github-token: ${{ secrets.GITHUB_TOKEN }}
