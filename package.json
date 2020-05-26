@@ -6,7 +6,9 @@
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
   "files": [
-    "dist"
+    "dist/index.cjs.js",
+    "dist/index.esm.js",
+    "dist/index.umd.js"
   ],
   "sideEffects": false,
   "license": "MIT",
