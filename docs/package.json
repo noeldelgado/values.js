@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run watch",
     "watch": "tarima watch src",
-    "build": "npm run min-css && npm run min-js",
+    "build": "tarima -fedV production && npm run min-css && npm run min-js",
     "min-css": "uglify -s build/css/00.css -o build/css/00.css -c",
     "min-js": "uglify -s build/js/00.js -o build/js/00.js"
   },
