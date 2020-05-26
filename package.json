@@ -15,14 +15,8 @@
     "dev": "rollup -c -w",
     "test": "mocha test/*",
     "test:watch": "npm test -- -w",
-    "coverage": "nyc npm run test && nyc report --reporter=text-lcov > coverage.lcov",
+    "coverage": "nyc npm run test && nyc report --reporter=lcov",
     "prepublishOnly": "npm run build && npm test"
-  },
-  "nyc": {
-    "all": true,
-    "include": [
-      "src/index.js"
-    ]
   },
   "keywords": [
     "tints",
