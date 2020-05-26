@@ -1,9 +1,10 @@
 # values.js
 
 [![NPM Version][npm-image]][npm-url]
-![][github-actions-nodejs-image]
-[![License][license-image]][license-url]
 [![Minzipped size][bundlephobia-image]][bundlephobic-url]
+[![License][license-image]][license-url]
+![][github-actions-nodejs-image]
+[![codecov][codecov-image]][codecov-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![Dependencies][david-image]][david-url]
 [![Dev Dependencies][david-dev-image]][david-dev-url]
@@ -163,6 +164,8 @@ MIT © [Noel Delgado](https://pixelia.me/)
 [npm-url]: https://www.npmjs.com/package/values.js
 [github-actions-nodejs-image]: https://github.com/noeldelgado/values.js/workflows/Node.js%20CI/badge.svg
 [github-actions-lighthouse-image]: https://github.com/noeldelgado/values.js/workflows/Lighthouse/badge.svg
+[codecov-image]: https://codecov.io/gh/noeldelgado/values.js/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/noeldelgado/values.js
 [license-image]: https://img.shields.io/npm/l/values.js.svg
 [license-url]: https://github.com/noeldelgado/values.js/blob/master/LICENSE
 [bundlephobia-image]: https://img.shields.io/bundlephobia/minzip/values.js?label=size
