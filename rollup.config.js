@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import cleanup from 'rollup-plugin-cleanup';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import { terser } from 'rollup-plugin-terser';
+import copy from 'rollup-plugin-copy';
 
 import pkg from './package.json';
 
@@ -22,7 +23,15 @@ export default [
       buble(),
       cleanup(),
       replace({ __VERSION__: `v${pkg.version}` }),
-      terser()
+      terser(),
+      copy({
+        targets: [
+          {
+            src: 'src/index.d.ts',
+            dest: 'dist'
+          }
+        ]
+      })
     ]
   },
   {

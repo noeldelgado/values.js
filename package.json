@@ -5,10 +5,12 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/index.cjs.js",
     "dist/index.esm.js",
-    "dist/index.umd.js"
+    "dist/index.umd.js",
+    "dist/index.d.ts"
   ],
   "sideEffects": false,
   "license": "MIT",
