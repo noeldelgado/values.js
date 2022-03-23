@@ -6,6 +6,10 @@
 - TS type definitions
 ### Changed
 - README: replace david-dm.org with libraries.io
+- upgrade and pin dependencies:
+  - mix-css-color 0.2.0
+  - parse-css-color 0.2.0
+  - parse-color 1.3.0
 
 ## [2.0.0] - [#7](https://github.com/noeldelgado/values.js/pull/7) - 2020-05-23
 ### Added
