@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+- TS type definitions
+### Changed
+- README: replace david-dm.org with libraries.io
+
 ## [2.0.0] - [#7](https://github.com/noeldelgado/values.js/pull/7) - 2020-05-23
 ### Added
 - alpha support
