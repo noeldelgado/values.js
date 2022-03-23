@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [2.1.0] - [#21](https://github.com/noeldelgado/values.js/pull/21) - 2022-03-23
+### Added
+- TS type definitions
+### Changed
+- README: replace david-dm.org with libraries.io
+- upgrade and pin dependencies:
+  - mix-css-color 0.2.0
+  - parse-css-color 0.2.0
+  - parse-color 1.3.0
+
 ## [2.0.0] - [#7](https://github.com/noeldelgado/values.js/pull/7) - 2020-05-23
 ### Added
 - alpha support
@@ -127,7 +137,8 @@
 ## [0.1.1] - 2014-07-02
 - initial release
 
-[Unreleased]: https://github.com/noeldelgado/values.js/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/noeldelgado/values.js/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/noeldelgado/values.js/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/noeldelgado/values.js/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/noeldelgado/values.js/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/noeldelgado/values.js/compare/v1.0.3...v1.1.0

@@ -6,8 +6,9 @@
 ![][github-actions-nodejs-image]
 [![codecov][codecov-image]][codecov-url]
 [![Known Vulnerabilities][snyk-image]][snyk-url]
-[![Dependencies][david-image]][david-url]
-[![Dev Dependencies][david-dev-image]][david-dev-url]
+<!--[![Dependencies][david-image]][david-url]
+[![Dev Dependencies][david-dev-image]][david-dev-url]-->
+[![Libraries.io dependency status for latest release][librariesio-img]][librariesio-url]
 [![Total alerts][lgtm-image]][lgtm-url]
 [![Language grade: JavaScript][lgtm-grade-image]][lgtm-grade-url]
 
@@ -176,6 +177,8 @@ MIT © [Noel Delgado](https://pixelia.me/)
 [david-url]: https://david-dm.org/noeldelgado/values.js
 [david-dev-image]: https://img.shields.io/david/dev/noeldelgado/values.js.svg
 [david-dev-url]: https://david-dm.org/noeldelgado/values.js?type=dev
+[librariesio-img]: https://img.shields.io/librariesio/release/npm/values.js
+[librariesio-url]: https://libraries.io/npm/values.js
 [lgtm-image]: https://img.shields.io/lgtm/alerts/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
 [lgtm-url]: https://lgtm.com/projects/g/noeldelgado/values.js/alerts/
 [lgtm-grade-image]: https://img.shields.io/lgtm/grade/javascript/g/noeldelgado/values.js.svg?logo=lgtm&logoWidth=18
