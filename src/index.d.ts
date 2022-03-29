@@ -5,7 +5,7 @@ declare module "values.js" {
   class Values {
     constructor(color?: string, type?: 'base' | 'tint' | 'shade', weight?: number)
     alpha: number
-    rgb: string
+    rgb: [number, number, number]
     type: string
     weight: number
     hex: string
