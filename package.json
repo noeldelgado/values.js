@@ -1,6 +1,6 @@
 {
   "name": "values.js",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Get tints and shades of a CSS color",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
