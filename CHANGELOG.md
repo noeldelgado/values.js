@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [2.1.1] - [#24](https://github.com/noeldelgado/values.js/pull/24) - 2022-03-30
+### Fixed
+- types: `values.rgb`
+
 ## [2.1.0] - [#21](https://github.com/noeldelgado/values.js/pull/21) - 2022-03-23
 ### Added
 - TS type definitions
@@ -138,6 +142,7 @@
 - initial release
 
 [Unreleased]: https://github.com/noeldelgado/values.js/compare/v2.1.0...HEAD
+[2.1.1]: https://github.com/noeldelgado/values.js/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/noeldelgado/values.js/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/noeldelgado/values.js/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/noeldelgado/values.js/compare/v1.1.0...v1.1.1
