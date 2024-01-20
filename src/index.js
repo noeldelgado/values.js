@@ -50,7 +50,8 @@ export default class Values {
   }
 
   all(weight = 10) {
-    return [...this.tints(weight).reverse(), Object.assign(this), ...this.shades(weight)];
+    const numberWeight = parseInt(weight)
+    return [...this.tints(numberWeight).reverse(), Object.assign(this), ...this.shades(numberWeight)];
   }
 
   hexString() {
